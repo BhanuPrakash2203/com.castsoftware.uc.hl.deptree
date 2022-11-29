@@ -2,31 +2,29 @@
 The script is used to generate a dependency of Components upto the last level  
 
 ## Installation
-* Download and unpack the latest release of the dependency tree tool from https://github.com/CAST-Extend/com.castsoftware.uc.arg/releases
-   * Source Code (zip) 
-   * com.castsoftware.uc.python.common.zip 
-
+* Download and unpack the latest release of the dependency tree tool from https://github.com/BhanuPrakash2203/com.castsoftware.uc.hl.deptree
+   
 * Unpack the Source Code zip file (arg)
 * Unpack the com.castsoftware.uc.python.common.zip into a separate folder
 * Install/update required third party packages. 
-    * Open a command prompt
-    * Go to the Source Code folder 
+    * Open a command prompt 
     * run: pip install -r requrements.txt
-* make sure the <com.castsoftware.uc.python.common>/src folder is included in the PYTHONPATH enviroment variable
+    * Run py UploadResults.py from command prompt
 
 ## Usage
-The script is designed to run on the command line using one parameter, --config, used to identify the project and applications to include in the presentation.
+The script is designed to run on the command line. It internally uses a properties.txt file for input parameters.
 
-    py convert.py --config config.properties 
+    py UploadResults.py 
 
-# Configuration file
-The Assessment Deck Generation Tool is configured using a json formatted file.  The file is divided into three sections, general configuration, application list and rest configuration.  
+# Properties file
+The Assessment Deck Generation Tool is configured using a plain test file.  The file is consists of various parameters which are required and need to be changed before running the tool.  
 #### General Configuration
 The general configuration section contains four parts,  
-* company - the name of the company as it will appear on the report
-* project name - the name of the project as it will appear on the report
-* template - the absolute location of the report template
-* output - the absolute location of the report output folder
+* hlJarPath - jar file of Higlight Automation (HighlightAutomation.jar)
+* workingDir - Directory path where automations will do some intermediate activities
+* analyzerDir - Path of the directory where Perl is installed
+* companyId - Company ID of HIghlight Instance
+* applicationId - Application ID of HIghlight Instance
 
 #### Application list
 This section contains a list of all applications that will be used in the report.  It is divided into three parts,  
