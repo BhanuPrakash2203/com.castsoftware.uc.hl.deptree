@@ -1,8 +1,8 @@
-# Assessment Deck Generation Tool
-The script is used to generate a PowerPoint deck from the provided template. This version includes part of the executive summary, the health and action plan pages.  
+# Highlight BOM Dependency Tree
+The script is used to generate a dependency of Components upto the last level  
 
 ## Installation
-* Download and unpack the latest release of the Assessment Deck  Generation Tool from https://github.com/CAST-Extend/com.castsoftware.uc.arg/releases
+* Download and unpack the latest release of the dependency tree tool from https://github.com/CAST-Extend/com.castsoftware.uc.arg/releases
    * Source Code (zip) 
    * com.castsoftware.uc.python.common.zip 
 
