@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UserScan xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="KeywordModel.xsd">
+	<keywordScan name="Pattern_Search" version="1.0">
+		<keywordGroup name="OCCURS" weight="1" sensitive="0" full_word="0"  scope="code">
+			<keywordItem id="1">OCCURS</keywordItem>
+		</keywordGroup>
+		<keywordGroup name="OCCURS_TXTVIEW" weight="1" scope="all">
+			<keywordItem id="1">OCCURS</keywordItem>
+		</keywordGroup>
+		<keywordGroup name="VARIABLES" weight="1" scope="code">
+			<keywordItem id="1">VARIABLES</keywordItem>
+		</keywordGroup>
+		<keywordGroup name="VARIABLES_TXTVIEW" weight="1" scope="all">
+			<keywordItem id="1">VARIABLES</keywordItem>
+		</keywordGroup>
+		<keywordGroup name="FETCH_CASE" weight="1" sensitive="1" full_word="0" scope="code">
+			<keywordItem id="2">fetch</keywordItem>
+		</keywordGroup>
+		<keywordGroup name="SQL_FULLWORD" weight="1" full_word="1" scope="code">
+			<keywordItem id="3">SQL</keywordItem>
+		</keywordGroup>
+	</keywordScan>	
+</UserScan>

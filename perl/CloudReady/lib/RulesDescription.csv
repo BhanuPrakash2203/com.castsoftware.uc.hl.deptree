@@ -1,0 +1,420 @@
+COBOL;Avoid_Code_Skipped;Avoid code that can accidentally get skipped;https://doc.casthighlight.com/cloudreadypatterns/#Avoid_Code_Skipped;Id_154;DISPLAY_statement;
+COBOL;Avoid_Code_Skipped;Avoid code that can accidentally get skipped;https://doc.casthighlight.com/cloudreadypatterns/#Avoid_Code_Skipped;Id_125;CodeSkipped;
+COBOL;Use_HexaConstants;Avoid using hexadecimal constants in mainframes;https://doc.casthighlight.com/cloudreadypatterns/#Use_HexaConstants;Id_153;HexaConstants;
+COBOL;Use_ALTER_statement;Avoid using ALTER statements in mainframes;https://doc.casthighlight.com/cloudreadypatterns/#Use_ALTER_statement;Id_156;ALTER_statement;
+COBOL;Use_PackedDecimal;Avoid using packed Decimal unique way of representation of decimal data in mainframes;https://doc.casthighlight.com/cloudreadypatterns/#Use_PackedDecimal;Id_157;PackedDecimal;
+COBOL;Use_Binary;Avoid using binary data type in mainframes;https://doc.casthighlight.com/cloudreadypatterns/#Use_Binary;Id_158;Binary;
+COBOL;Use_CAPanvaletCommand;Avoid using CA Panvalet Command in mainframes specific of Z/OS;https://doc.casthighlight.com/cloudreadypatterns/#Use_CAPanvaletCommand;Id_159;CAPanvaletCommand;
+COBOL;Use_DLICalls;Avoid using DL/I Calls;https://doc.casthighlight.com/cloudreadypatterns/#Use_DLICalls;Id_160;DLICalls;
+COBOL;Use_DoubleByteCharacter;Avoid using Double Byte character in mainframes;https://doc.casthighlight.com/cloudreadypatterns/#Use_DoubleByteCharacter;Id_161;DoubleByteCharacter;
+COBOL;Use_GOTO_statement;Avoid using GOTO statements in mainframes;https://doc.casthighlight.com/cloudreadypatterns/#Use_GOTO_statement;Id_162;GOTO_statement;
+COBOL;Use_DecimalPointComma;Avoid using DECIMAL POINT IS A COMMA clause in mainframes specific to Z/OS;https://doc.casthighlight.com/cloudreadypatterns/#Use_DecimalPointComma;Id_163;DecimalPointComma;
+COBOL;Use_CurrencySign;Avoid using CURRENCY SIGN clause in mainframes specific to Z/OS;https://doc.casthighlight.com/cloudreadypatterns/#Use_CurrencySign;Id_165;CurrencySign;
+COBOL;Use_OccurClause;Avoid using OCCURS clause in mainframes;https://doc.casthighlight.com/cloudreadypatterns/#Use_OccurClause;Id_178;OccurClause;
+COBOL;Use_RedefinesClause;Avoid using REDEFINES clause in mainframes;https://doc.casthighlight.com/cloudreadypatterns/#Use_RedefinesClause;Id_193;RedefinesClause;
+COBOL;Use_DummyTable;Avoid using the SYSIBM.SYSDUMMY1 dummy table in mainframes;https://doc.casthighlight.com/cloudreadypatterns/#Use_DummyTable;Id_194;DummyTable;
+CSHARP;Use_Access_Control;Using Access Control List;https://doc.casthighlight.com/cloudreadypatterns/#Use_Access_Control;Id_039;UsingSystemSecurityAccessControl;Id_039&&(Id_040||Id_041)
+CSHARP;Use_Access_Control;Using Access Control List;https://doc.casthighlight.com/cloudreadypatterns/#Use_Access_Control;Id_040;FileGetAccessControl;Id_039&&(Id_040||Id_041)
+CSHARP;Use_Access_Control;Using Access Control List;https://doc.casthighlight.com/cloudreadypatterns/#Use_Access_Control;Id_041;FileSetAccessControl;Id_039&&(Id_040||Id_041)
+CSHARP;Use_Configuration_Except_WebConfig;Using other configuration files than Web configuration;https://doc.casthighlight.com/cloudreadypatterns/#Use_Configuration_Except_WebConfig;Id_1000;ExtraConfFile;
+CSHARP;Use_COM_Components;Using COM Components;https://doc.casthighlight.com/cloudreadypatterns/#Use_COM_Components;Id_046;ComImport;
+CSHARP;Use_COM_Components;Using COM Components;https://doc.casthighlight.com/cloudreadypatterns/#Use_COM_Components;Id_047;UsingSystemRuntimeInteropServices;
+CSHARP;Use_COM_Components;Using COM Components;https://doc.casthighlight.com/cloudreadypatterns/#Use_COM_Components;Id_1008;CsprojCOMReferenceInclude;
+CSHARP;Use_Crypto_API;Using Crypto API;https://doc.casthighlight.com/cloudreadypatterns/#Use_Crypto_API;Id_064;UsingSystemSecurityCryptography;
+CSHARP;Use_File_System;Using file system;https://doc.casthighlight.com/cloudreadypatterns/#Use_File_System;Id_057;HardCodedPath;
+CSHARP;Use_OS_Dependency;Using system DLLs;https://doc.casthighlight.com/cloudreadypatterns/#Use_OS_Dependency;Id_038;DllImport;
+CSHARP;Use_InterApplication_MiddleWare;Using a middleware application;https://doc.casthighlight.com/cloudreadypatterns/#Use_InterApplication_MiddleWare;Id_042;UsingSystemMessaging;
+CSHARP;Use_InterApplication_MiddleWare;Using a middleware application;https://doc.casthighlight.com/cloudreadypatterns/#Use_InterApplication_MiddleWare;Id_043;UsingRabbitMQClient;
+CSHARP;Use_InterApplication_MiddleWare;Using a middleware application;https://doc.casthighlight.com/cloudreadypatterns/#Use_InterApplication_MiddleWare;Id_044;UsingTIBCOEMS;
+CSHARP;Use_InterApplication_MiddleWare;Using a middleware application;https://doc.casthighlight.com/cloudreadypatterns/#Use_InterApplication_MiddleWare;Id_045;UsingIBMWMQ;
+CSHARP;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_001;UsingSystemIO;Id_001&&(Id_011||Id_012||Id_013||Id_014)
+CSHARP;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_011;DirectoryCreateDirectory;Id_001&&(Id_011||Id_012||Id_013||Id_014)
+CSHARP;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_012;DirectoryMove;Id_001&&(Id_011||Id_012||Id_013||Id_014)
+CSHARP;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_013;DirectoryDelete;Id_001&&(Id_011||Id_012||Id_013||Id_014)
+CSHARP;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_014;DirectoryExists;Id_001&&(Id_011||Id_012||Id_013||Id_014)
+CSHARP;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_001;UsingSystemIO;Id_001&&(Id_002||Id_003||Id_004||Id_005||Id_006||Id_007||Id_008||Id_009)
+CSHARP;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_002;FileMove;Id_001&&(Id_002||Id_003||Id_004||Id_005||Id_006||Id_007||Id_008||Id_009)
+CSHARP;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_003;FileCreate;Id_001&&(Id_002||Id_003||Id_004||Id_005||Id_006||Id_007||Id_008||Id_009)
+CSHARP;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_004;FileDelete;Id_001&&(Id_002||Id_003||Id_004||Id_005||Id_006||Id_007||Id_008||Id_009)
+CSHARP;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_005;FileCopy;Id_001&&(Id_002||Id_003||Id_004||Id_005||Id_006||Id_007||Id_008||Id_009)
+CSHARP;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_006;FileExists;Id_001&&(Id_002||Id_003||Id_004||Id_005||Id_006||Id_007||Id_008||Id_009)
+CSHARP;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_007;FileEncrypt;Id_001&&(Id_002||Id_003||Id_004||Id_005||Id_006||Id_007||Id_008||Id_009)
+CSHARP;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_008;FileDecrypt;Id_001&&(Id_002||Id_003||Id_004||Id_005||Id_006||Id_007||Id_008||Id_009)
+CSHARP;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_009;Open;Id_001&&(Id_002||Id_003||Id_004||Id_005||Id_006||Id_007||Id_008||Id_009)
+CSHARP;Use_Registry_Class;Using Windows registry;https://doc.casthighlight.com/cloudreadypatterns/#Use_Registry_Class;Id_020;UsingMicrosoftWin32;Id_020&&(Id_021||Id_022)
+CSHARP;Use_Registry_Class;Using Windows registry;https://doc.casthighlight.com/cloudreadypatterns/#Use_Registry_Class;Id_021;RegistryGetValue;Id_020&&(Id_021||Id_022)
+CSHARP;Use_Registry_Class;Using Windows registry;https://doc.casthighlight.com/cloudreadypatterns/#Use_Registry_Class;Id_022;RegistrySetValue;Id_020&&(Id_021||Id_022)
+CSHARP;Use_Direct_RDBMS_Access;Using connection strings for database connection;https://doc.casthighlight.com/cloudreadypatterns/#Use_Direct_RDBMS_Access;Id_018;UsingSystemConfiguration;Id_018&&Id_034
+CSHARP;Use_Direct_RDBMS_Access;Using connection strings for database connection;https://doc.casthighlight.com/cloudreadypatterns/#Use_Direct_RDBMS_Access;Id_034;ConfigurationManagerConnectionStrings;Id_018&&Id_034
+CSHARP;Access_To_Environment_Variable;Access to environment variable;https://doc.casthighlight.com/cloudreadypatterns/#Access_To_Environment_Variable;Id_015;UsingSystem;Id_015&&(Id_016||Id_017)
+CSHARP;Access_To_Environment_Variable;Access to environment variable;https://doc.casthighlight.com/cloudreadypatterns/#Access_To_Environment_Variable;Id_016;TempVarReading;Id_015&&(Id_016||Id_017)
+CSHARP;Access_To_Environment_Variable;Access to environment variable;https://doc.casthighlight.com/cloudreadypatterns/#Access_To_Environment_Variable;Id_017;TempVarExpanding;Id_015&&(Id_016||Id_017)
+CSHARP;Use_GetTempPath;Using GetTempPath;https://doc.casthighlight.com/cloudreadypatterns/#Use_GetTempPath;Id_001;UsingSystemIO;Id_001&&Id_010
+CSHARP;Use_GetTempPath;Using GetTempPath;https://doc.casthighlight.com/cloudreadypatterns/#Use_GetTempPath;Id_010;GetTempPath;Id_001&&Id_010
+CSHARP;Use_Impersonate_Identity;Using impersonate Identity;https://doc.casthighlight.com/cloudreadypatterns/#Use_Impersonate_Identity;Id_037;ImpersonationOption;Id_1007&&Id_037
+CSHARP;Use_Impersonate_Identity;Using impersonate Identity;https://doc.casthighlight.com/cloudreadypatterns/#Use_Impersonate_Identity;Id_1007;WebConfigIdentityImpersonateTrue;Id_1007&&Id_037
+CSHARP;Use_WebForm_Authentication;Using Webform Authentication;https://doc.casthighlight.com/cloudreadypatterns/#Use_WebForm_Authentication;Id_1003;WebConfigAuthenticationForm;
+CSHARP;Use_Windows_Authentication;Use of Windows Authentication;https://doc.casthighlight.com/cloudreadypatterns/#Use_Windows_Authentication;Id_1004;WebConfigAuthenticationWindows;
+CSHARP;Use_SecuredProtocols;Use of unsecured network protocols (HTTP, FTP);https://doc.casthighlight.com/cloudreadypatterns/#Use_SecuredProtocols;Id_095;URINotSecured;
+CSHARP;Use_SecuredProtocolsHTTP;Use of unsecured network protocols (HTTP);https://doc.casthighlight.com/cloudreadypatterns/#Use_SecuredProtocols;Id_117;URINotSecuredHTTP;
+CSHARP;Use_SecuredProtocolsFTP;Use of unsecured network protocols (FTP);https://doc.casthighlight.com/cloudreadypatterns/#Use_SecuredProtocols;Id_118;URINotSecuredFTP;
+CSHARP;Use_Hardcoded_IP_Address;Using hardcoded network IP address (IPV4, IPV6);https://doc.casthighlight.com/cloudreadypatterns/#Use_Hardcoded_IP_Address;Id_096;HardCodedIP;
+CSHARP;Use_WCF_Service;Use of WCF (Windows Communication Foundation) services;https://doc.casthighlight.com/cloudreadypatterns/#Use_WCF_Service;Id_1014;WCFService;
+CSHARP;Use_WCF_Service_WebConf;Use of WCF services in web.config file;https://doc.casthighlight.com/cloudreadypatterns/#Use_WCF_Service_WebConf;Id_1022;WCFServiceWebConf;
+CSHARP;Use_WCF_Service_AppConf;Use of WCF services in app.config file;https://doc.casthighlight.com/cloudreadypatterns/#Use_WCF_Service_AppConf;Id_1023;WCFServiceAppConf;
+CSHARP;Use_Auto_Generated_Machine_Key;Using auto generated Machine Key;https://doc.casthighlight.com/cloudreadypatterns/#Use_Auto_Generated_Machine_Key;Id_1021;MachineKey_ValidationKey_AutoGenerate;
+CSHARP;Use_SQL_Database_Unsecure_Authentication;Use an unsecured connection string;https://doc.casthighlight.com/cloudreadypatterns/#Use_SQL_Database_Unsecure_Authentication;Id_164;SQLDatabaseUnsecureAuthentication;
+CSHARP;Use_HTTPProtocol;Hardcoded URLs using HTTP protocol;https://doc.casthighlight.com/cloudreadypatterns/#Use_HTTPProtocol;Id_189;HTTPProtocol;
+CSHARP;Use_FTPProtocol;Hardcoded URLs using FTP protocol;https://doc.casthighlight.com/cloudreadypatterns/#Use_FTPProtocol;Id_205;FTPProtocol;
+CSHARP;Use_LDAPProtocol;Hardcoded URLs using LDAP protocol;https://doc.casthighlight.com/cloudreadypatterns/#Use_LDAPProtocol;Id_206;LDAPProtocol;
+CSHARP;Use_UnSecuredAPI;Use of an unsecured API;https://doc.casthighlight.com/cloudreadypatterns/#Use_UnSecuredAPI;Id_258;ApiUnsecured;
+CSHARP;Use_Unsecured_Data_Strings;Use of an unsecured data string;https://doc.casthighlight.com/cloudreadypatterns/#Use_Unsecured_Data_Strings;Id_260;SensitiveDataString;
+CSHARP;Use_ActiveDirectoryAuthentication;Use of LDAP/AD authentication;https://doc.casthighlight.com/cloudreadypatterns/#Use_ActiveDirectoryAuthentication;Id_268;ActiveDirectoryLDAP;
+CSHARP;Detect_Use_Log4net;Detect usage of Log4Net;https://doc.casthighlight.com/cloudreadypatterns/#Detect_Use_Log4net;Id_120;Log4Net;
+CSHARP;Detect_Use_Log4net;Detect usage of Log4Net;https://doc.casthighlight.com/cloudreadypatterns/#Detect_Use_Log4net;Id_1013;Log4NetConfig;
+CSHARP;Use_System_ServiceProcess;Using System.ServiceProcess (Windows services);https://doc.casthighlight.com/cloudreadypatterns/#Use_System_ServiceProcess;Id_169;Using_SystemServiceProcess;
+CSHARP;Use_EventLog;Using EventLog in System.Diagnostics namespace;https://doc.casthighlight.com/cloudreadypatterns/#Use_EventLog;Id_167;New_EventLog;
+CSHARP;Use_EventLog;Using EventLog in System.Diagnostics namespace;https://doc.casthighlight.com/cloudreadypatterns/#Use_EventLog;Id_168;New_EventLogTraceListener;
+CSHARP;Use_EventLog;Using EventLog in System.Diagnostics namespace;https://doc.casthighlight.com/cloudreadypatterns/#Use_EventLog;Id_1020;Config_EventLogTraceListener;
+CSHARP;Use_Sub_Processes;Using New Process in System.Diagnostics namespace;https://doc.casthighlight.com/cloudreadypatterns/#Use_Sub_Processes;Id_025;UsingSystemDiagnostics;Id_025&&Id_166
+CSHARP;Use_Sub_Processes;Using New Process in System.Diagnostics namespace;https://doc.casthighlight.com/cloudreadypatterns/#Use_Sub_Processes;Id_166;New_Process;Id_025&&Id_166
+JAVA;Use_Access_Control;Using Access Control List;https://doc.casthighlight.com/cloudreadypatterns/#Use_Access_Control;Id_058;Import_JavaNioFileAttribute;
+JAVA;Use_Access_Control;Using Access Control List;https://doc.casthighlight.com/cloudreadypatterns/#Use_Access_Control;Id_059;Implements_AclFileAtributeView;
+JAVA;Use_Configuration_Except_WebConfig;Using other configuration files than Web configuration;https://doc.casthighlight.com/cloudreadypatterns/#Use_Configuration_Except_WebConfig;Id_1000;ExtraConfFile;
+JAVA;Application_Server_Dependencies;Application server dependencies;https://doc.casthighlight.com/cloudreadypatterns/#Application_Server_Dependencies;Id_060;Import_Tomcat;
+JAVA;Application_Server_Dependencies;Application server dependencies;https://doc.casthighlight.com/cloudreadypatterns/#Application_Server_Dependencies;Id_061;Import_Jetty;
+JAVA;Application_Server_Dependencies;Application server dependencies;https://doc.casthighlight.com/cloudreadypatterns/#Application_Server_Dependencies;Id_062;Import_Weblogic;
+JAVA;Application_Server_Dependencies;Application server dependencies;https://doc.casthighlight.com/cloudreadypatterns/#Application_Server_Dependencies;Id_063;Import_Websphere;
+JAVA;Use_File_System;Using file system;https://doc.casthighlight.com/cloudreadypatterns/#Use_File_System;Id_057;HardCodedPath;
+JAVA;Use_InterApplication_MiddleWare;Using a middleware application;https://doc.casthighlight.com/cloudreadypatterns/#Use_InterApplication_MiddleWare;Id_042;UsingSystemMessaging;
+JAVA;Use_InterApplication_MiddleWare;Using a middleware application;https://doc.casthighlight.com/cloudreadypatterns/#Use_InterApplication_MiddleWare;Id_043;UsingRabbitMQClient;
+JAVA;Use_InterApplication_MiddleWare;Using a middleware application;https://doc.casthighlight.com/cloudreadypatterns/#Use_InterApplication_MiddleWare;Id_044;UsingTIBCOEMS;
+JAVA;Use_InterApplication_MiddleWare;Using a middleware application;https://doc.casthighlight.com/cloudreadypatterns/#Use_InterApplication_MiddleWare;Id_045;UsingIBMWMQ;
+JAVA;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_012;DirectoryMove;(Id_048||Id_052||Id_092)&&(Id_012||Id_049||Id_050||Id_055||Id_056||Id_013)
+JAVA;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_013;DirectoryDelete;(Id_048||Id_052||Id_092)&&(Id_012||Id_049||Id_050||Id_055||Id_056||Id_013)
+JAVA;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_048;Import_OrgApacheCommonIoFileUtils;(Id_048||Id_052||Id_092)&&(Id_012||Id_049||Id_050||Id_055||Id_056||Id_013)
+JAVA;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_049;DirectoryDelete_1;(Id_048||Id_052||Id_092)&&(Id_012||Id_049||Id_050||Id_055||Id_056||Id_013)
+JAVA;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_050;DirectoryCopy;(Id_048||Id_052||Id_092)&&(Id_012||Id_049||Id_050||Id_055||Id_056||Id_013)
+JAVA;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_052;Import_JavaIoFile;(Id_048||Id_052||Id_092)&&(Id_012||Id_049||Id_050||Id_055||Id_056||Id_013)
+JAVA;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_055;DirectoryCreate;(Id_048||Id_052||Id_092)&&(Id_012||Id_049||Id_050||Id_055||Id_056||Id_013)
+JAVA;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_056;IsDirectory;(Id_048||Id_052||Id_092)&&(Id_012||Id_049||Id_050||Id_055||Id_056||Id_013)
+JAVA;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_092;Import_JavaIo;(Id_048||Id_052||Id_092)&&(Id_012||Id_049||Id_050||Id_055||Id_056||Id_013)
+JAVA;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_002;FileMove;(Id_048||Id_052||Id_092)&&(Id_002||Id_004||Id_005||Id_051||Id_093||Id_094||Id_054||Id_003)
+JAVA;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_003;FileCreate;(Id_048||Id_052||Id_092)&&(Id_002||Id_004||Id_005||Id_051||Id_093||Id_094||Id_054||Id_003)
+JAVA;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_004;FileDelete;(Id_048||Id_052||Id_092)&&(Id_002||Id_004||Id_005||Id_051||Id_093||Id_094||Id_054||Id_003)
+JAVA;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_005;FileCopy;(Id_048||Id_052||Id_092)&&(Id_002||Id_004||Id_005||Id_051||Id_093||Id_094||Id_054||Id_003)
+JAVA;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_048;Import_OrgApacheCommonIoFileUtils;(Id_048||Id_052||Id_092)&&(Id_002||Id_004||Id_005||Id_051||Id_093||Id_094||Id_054||Id_003)
+JAVA;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_051;Write;(Id_048||Id_052||Id_092)&&(Id_002||Id_004||Id_005||Id_051||Id_093||Id_094||Id_054||Id_003)
+JAVA;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_052;Import_JavaIoFile;(Id_048||Id_052||Id_092)&&(Id_002||Id_004||Id_005||Id_051||Id_093||Id_094||Id_054||Id_003)
+JAVA;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_054;FileRename;(Id_048||Id_052||Id_092)&&(Id_002||Id_004||Id_005||Id_051||Id_093||Id_094||Id_054||Id_003)
+JAVA;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_092;Import_JavaIo;(Id_048||Id_052||Id_092)&&(Id_002||Id_004||Id_005||Id_051||Id_093||Id_094||Id_054||Id_003)
+JAVA;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_093;New_File;(Id_048||Id_052||Id_092)&&(Id_002||Id_004||Id_005||Id_051||Id_093||Id_094||Id_054||Id_003)
+JAVA;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_094;New_FileInputStream;(Id_048||Id_052||Id_092)&&(Id_002||Id_004||Id_005||Id_051||Id_093||Id_094||Id_054||Id_003)
+JAVA;Access_To_Environment_Variable;Access to environment variable;https://doc.casthighlight.com/cloudreadypatterns/#Access_To_Environment_Variable;Id_016;TempVarReading;
+JAVA;Use_Impersonate_Identity;Using impersonate Identity;https://doc.casthighlight.com/cloudreadypatterns/#Use_Impersonate_Identity;Id_069;Import_WaffleWindowsAuth;Id_069&&Id_1011
+JAVA;Use_Impersonate_Identity;Using impersonate Identity;https://doc.casthighlight.com/cloudreadypatterns/#Use_Impersonate_Identity;Id_1011;PomXmlAdal4jDependency;Id_069&&Id_1011
+JAVA;Use_SecuredProtocols;Use of unsecured network protocols (HTTP, FTP);https://doc.casthighlight.com/cloudreadypatterns/#Use_SecuredProtocols;Id_095;URINotSecured;
+JAVA;Use_SecuredProtocolsHTTP;Use of unsecured network protocols (HTTP);https://doc.casthighlight.com/cloudreadypatterns/#Use_SecuredProtocols;Id_117;URINotSecuredHTTP;
+JAVA;Use_SecuredProtocolsFTP;Use of unsecured network protocols (FTP);https://doc.casthighlight.com/cloudreadypatterns/#Use_SecuredProtocols;Id_118;URINotSecuredFTP;
+JAVA;Use_Hardcoded_IP_Address;Using hardcoded network IP address (IPV4, IPV6);https://doc.casthighlight.com/cloudreadypatterns/#Use_Hardcoded_IP_Address;Id_096;HardCodedIP;
+JAVA;Use_Stateful_Session;Using stateful session (Servlet);https://doc.casthighlight.com/cloudreadypatterns/#Use_Stateful_Session;Id_097;Import_JavaxServletHttpHttpSession;Id_097&&Id_098
+JAVA;Use_Stateful_Session;Using stateful session (Servlet);https://doc.casthighlight.com/cloudreadypatterns/#Use_Stateful_Session;Id_098;HttpSession_setAttribute;Id_097&&Id_098
+JAVA;Use_Stateful_Session_Spring;Using stateful session (Spring);https://doc.casthighlight.com/cloudreadypatterns/#Use_Stateful_Session_Spring;Id_100;Spring_SessionAttribute;
+JAVA;Use_Stateful_Session_Spring;Using stateful session (Spring);https://doc.casthighlight.com/cloudreadypatterns/#Use_Stateful_Session_Spring;Id_105;Spring_AnnotationForStatefulCompliantScopes;
+JAVA;Use_Stateful_Session_Spring;Using stateful session (Spring);https://doc.casthighlight.com/cloudreadypatterns/#Use_Stateful_Session_Spring;Id_1012;Spring_XmlConfForStatefulCompliantScopes;
+JAVA;Use_HTTPProtocol;Hardcoded URLs using HTTP protocol;https://doc.casthighlight.com/cloudreadypatterns/#Use_HTTPProtocol;Id_189;HTTPProtocol;
+JAVA;Use_FTPProtocol;Hardcoded URLs using FTP protocol;https://doc.casthighlight.com/cloudreadypatterns/#Use_FTPProtocol;Id_205;FTPProtocol;
+JAVA;Use_LDAPProtocol;Hardcoded URLs using LDAP protocol;https://doc.casthighlight.com/cloudreadypatterns/#Use_LDAPProtocol;Id_206;LDAPProtocol;
+JAVA;Use_Unsecured_Data_Strings;Use of an unsecured data string;https://doc.casthighlight.com/cloudreadypatterns/#Use_Unsecured_Data_Strings;Id_260;SensitiveDataString;
+JAVA;Use_CDI_Beans_Configuration;Using CDI Beans Configuration;https://doc.casthighlight.com/cloudreadypatterns/#Use_CDI_Beans_Configuration;Id_1019;CDIBeansConfiguration;
+JAVA;Use_Weblogic;Using Oracle WebLogic;https://doc.casthighlight.com/cloudreadypatterns/#Use_Weblogic;Id_062;Import_Weblogic;
+JAVA;Use_Weblogic;Using Oracle WebLogic;https://doc.casthighlight.com/cloudreadypatterns/#Use_Weblogic;Id_1015;WeblogicConfiguration;
+JAVA;Use_Websphere;Using IBM WebSphere;https://doc.casthighlight.com/cloudreadypatterns/#Use_Websphere;Id_063;Import_Websphere;
+JAVA;Use_Websphere;Using IBM WebSphere;https://doc.casthighlight.com/cloudreadypatterns/#Use_Websphere;Id_1016;WebsphereConfiguration;
+JAVA;Use_JBoss;Using JBoss Application Server;https://doc.casthighlight.com/cloudreadypatterns/#Use_JBoss;Id_149;Import_Jboss;
+JAVA;Use_JBoss;Using JBoss Application Server;https://doc.casthighlight.com/cloudreadypatterns/#Use_JBoss;Id_1017;JBossConfiguration;
+JAVA;Use_JEEConfiguration;Using JEE Configuration;https://doc.casthighlight.com/cloudreadypatterns/#Use_JEEConfiguration;Id_1018;JEEConfiguration;
+JS;Use_Access_Control;Using Access Control List;https://doc.casthighlight.com/cloudreadypatterns/#Use_Access_Control;Id_071;New_AccessControlList;
+JS;Use_Crypto_API;Using Crypto API;https://doc.casthighlight.com/cloudreadypatterns/#Use_Crypto_API;Id_064;UsingSystemSecurityCryptography;
+JS;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_014;DirectoryExists;
+JS;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_171;DirectoryCurrent;
+JS;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_173;DirectoryChange;
+JS;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_124;Path;
+JS;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_002;FileMove;
+JS;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_005;FileCopy;
+JS;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_009;Open;
+JS;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_094;New_FileInputStream;
+JS;Access_To_Environment_Variable;Access to environment variable;https://doc.casthighlight.com/cloudreadypatterns/#Access_To_Environment_Variable;Id_174;EnvironmentVariable;
+JS;Use_SecuredProtocols;Use of unsecured network protocols (HTTP, FTP);https://doc.casthighlight.com/cloudreadypatterns/#Use_SecuredProtocols;Id_095;URINotSecured;
+JS;Use_SecuredProtocolsHTTP;Use of unsecured network protocols (HTTP);https://doc.casthighlight.com/cloudreadypatterns/#Use_SecuredProtocols;Id_117;URINotSecuredHTTP;
+JS;Use_SecuredProtocolsFTP;Use of unsecured network protocols (FTP);https://doc.casthighlight.com/cloudreadypatterns/#Use_SecuredProtocols;Id_118;URINotSecuredFTP;
+JS;Use_Hardcoded_IP_Address;Using hardcoded network IP address (IPV4, IPV6);https://doc.casthighlight.com/cloudreadypatterns/#Use_Hardcoded_IP_Address;Id_096;HardCodedIP;
+JS;Avoid_Code_Skipped;Avoid code that can accidentally get skipped;https://doc.casthighlight.com/cloudreadypatterns/#Avoid_Code_Skipped;Id_125;CodeSkipped;
+JS;Use_HTTPProtocol;Hardcoded URLs using HTTP protocol;https://doc.casthighlight.com/cloudreadypatterns/#Use_HTTPProtocol;Id_189;HTTPProtocol;
+JS;Use_FTPProtocol;Hardcoded URLs using FTP protocol;https://doc.casthighlight.com/cloudreadypatterns/#Use_FTPProtocol;Id_205;FTPProtocol;
+JS;Use_LDAPProtocol;Hardcoded URLs using LDAP protocol;https://doc.casthighlight.com/cloudreadypatterns/#Use_LDAPProtocol;Id_206;LDAPProtocol;
+JS;Use_Unsecured_Data_Strings;Use of an unsecured data string;https://doc.casthighlight.com/cloudreadypatterns/#Use_Unsecured_Data_Strings;Id_260;SensitiveDataString;
+JS;Use_Sub_Processes;Using New Process in System.Diagnostics namespace;https://doc.casthighlight.com/cloudreadypatterns/#Use_Sub_Processes;Id_166;New_Process;
+PHP;Use_File_System;Using file system;https://doc.casthighlight.com/cloudreadypatterns/#Use_File_System;Id_057;HardCodedPath;
+PHP;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_011;DirectoryCreateDirectory;
+PHP;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_012;DirectoryMove;
+PHP;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_013;DirectoryDelete;
+PHP;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_014;DirectoryExists;
+PHP;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_171;DirectoryCurrent;
+PHP;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_172;DirectoryAccess;
+PHP;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_173;DirectoryChange;
+PHP;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_002;FileMove;
+PHP;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_004;FileDelete;
+PHP;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_005;FileCopy;
+PHP;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_006;FileExists;
+PHP;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_009;Open;
+PHP;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_051;Write;
+PHP;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_094;New_FileInputStream;
+PHP;Access_To_Environment_Variable;Access to environment variable;https://doc.casthighlight.com/cloudreadypatterns/#Access_To_Environment_Variable;Id_174;EnvironmentVariable;
+PHP;Use_SecuredProtocols;Use of unsecured network protocols (HTTP, FTP);https://doc.casthighlight.com/cloudreadypatterns/#Use_SecuredProtocols;Id_095;URINotSecured;
+PHP;Use_SecuredProtocolsHTTP;Use of unsecured network protocols (HTTP);https://doc.casthighlight.com/cloudreadypatterns/#Use_SecuredProtocols;Id_117;URINotSecuredHTTP;
+PHP;Use_SecuredProtocolsFTP;Use of unsecured network protocols (FTP);https://doc.casthighlight.com/cloudreadypatterns/#Use_SecuredProtocols;Id_118;URINotSecuredFTP;
+PHP;Use_Hardcoded_IP_Address;Using hardcoded network IP address (IPV4, IPV6);https://doc.casthighlight.com/cloudreadypatterns/#Use_Hardcoded_IP_Address;Id_096;HardCodedIP;
+PHP;Launch_Sub_Processes;Launching sub processes;https://doc.casthighlight.com/cloudreadypatterns/#Launch_Sub_Processes;Id_170;LaunchSubProcess;
+PHP;DB_Access_MySQL;Using MySQL commands deprecated;https://doc.casthighlight.com/cloudreadypatterns/#DB_Access_MySQL;Id_179;DBAccessMySQL;
+PHP;Use_Stateful_Session;Using stateful session (Servlet);https://doc.casthighlight.com/cloudreadypatterns/#Use_Stateful_Session;Id_261;ServletPHP;
+PHP;Use_HTTPProtocol;Hardcoded URLs using HTTP protocol;https://doc.casthighlight.com/cloudreadypatterns/#Use_HTTPProtocol;Id_189;HTTPProtocol;
+PHP;Use_FTPProtocol;Hardcoded URLs using FTP protocol;https://doc.casthighlight.com/cloudreadypatterns/#Use_FTPProtocol;Id_205;FTPProtocol;
+PHP;Use_LDAPProtocol;Hardcoded URLs using LDAP protocol;https://doc.casthighlight.com/cloudreadypatterns/#Use_LDAPProtocol;Id_206;LDAPProtocol;
+PHP;Use_Unsecured_Data_Strings;Use of an unsecured data string;https://doc.casthighlight.com/cloudreadypatterns/#Use_Unsecured_Data_Strings;Id_260;SensitiveDataString;
+PHP;Use_DbDriverDbLib_AZU;Use of database driver incompatibility (PDO_DBLIB);https://doc.casthighlight.com/cloudreadypatterns/#Use_DbDriverDbLib;Id_266;DbDriverDbLib;
+PHP;Use_SendMail;Use of sendmail utility on Paas instead of specific email sending library;https://doc.casthighlight.com/cloudreadypatterns/#Use_SendMail;Id_267;SendMail;
+TSQL;Use_SQL_Semantic_Search_AZU;Using semantic search (SEMANTICKEYPHRASETABLE) - Not supported in Azure SQL Database;https://doc.casthighlight.com/cloudreadypatterns/#Use_SQL_Semantic_Search;Id_135;SEMANTICKEYPHRASETABLE;
+TSQL;Use_SQL_FnMyPermissions_AZU;Using function 'fn_my_permissions' - Not supported in Azure SQL Database;https://doc.casthighlight.com/cloudreadypatterns/#Use_SQL_FnMyPermissions;Id_130;Fn_my_permissions;
+TSQL;Use_SQL_SpAddMessage_AZU;Using function 'sp_addmessage' - Not supported in Azure SQL Database;https://doc.casthighlight.com/cloudreadypatterns/#Use_SQL_SpAddMessage;Id_131;Sp_addmessage;
+TSQL;Use_SQL_Get_VirtualServerNodes;Using  functions 'fn_get_sql', 'fn_virtualservernodes' - Not supported in Azure SQL Database;https://doc.casthighlight.com/cloudreadypatterns/#Use_SQL_Get_VirtualServerNodes;Id_132;Fn_get_sql;
+TSQL;Use_SQL_Get_VirtualServerNodes;Using  functions 'fn_get_sql', 'fn_virtualservernodes' - Not supported in Azure SQL Database;https://doc.casthighlight.com/cloudreadypatterns/#Use_SQL_Get_VirtualServerNodes;Id_134;Fn_virtualservernodes;
+TSQL;Use_SQL_Open_Functions_AZU;Using OPEN functions ('OPENQUERY', 'OPENROWSET', 'OPENDATASOURCE') - Not supported in Azure SQL Database;https://doc.casthighlight.com/cloudreadypatterns/#Use_SQL_Open_Functions;Id_136;OPENQUERY;
+TSQL;Use_SQL_Open_Functions_AZU;Using OPEN functions ('OPENQUERY', 'OPENROWSET', 'OPENDATASOURCE') - Not supported in Azure SQL Database;https://doc.casthighlight.com/cloudreadypatterns/#Use_SQL_Open_Functions;Id_137;OPENROWSET;
+TSQL;Use_SQL_Open_Functions_AZU;Using OPEN functions ('OPENQUERY', 'OPENROWSET', 'OPENDATASOURCE') - Not supported in Azure SQL Database;https://doc.casthighlight.com/cloudreadypatterns/#Use_SQL_Open_Functions;Id_138;OPENDATASOURCE;
+TSQL;Use_SQL_USE_Statements_AZU;Using USE statements - Not supported in Azure SQL Database;https://doc.casthighlight.com/cloudreadypatterns/#Use_SQL_USE_Statements;Id_139;USE_statement;
+TSQL;Use_SQL_CREATE_CREDENTIAL_AZU;Using function 'CREATE CREDENTIAL' - Not supported in Azure SQL Database;https://doc.casthighlight.com/cloudreadypatterns/#Use_SQL_CREATE_CREDENTIAL;Id_140;CreateCredential;
+TSQL;Use_SQL_ALTER_DATABASE_AZU;Using function 'ALTER DATABASE' - Not supported in Azure SQL Database;https://doc.casthighlight.com/cloudreadypatterns/#Use_SQL_ALTER_DATABASE;Id_141;AlterDatabase;
+VB;Use_Access_Control;Using Access Control List;https://doc.casthighlight.com/cloudreadypatterns/#Use_Access_Control;Id_039;UsingSystemSecurityAccessControl;Id_039&&(Id_040||Id_041)
+VB;Use_Access_Control;Using Access Control List;https://doc.casthighlight.com/cloudreadypatterns/#Use_Access_Control;Id_040;FileGetAccessControl;Id_039&&(Id_040||Id_041)
+VB;Use_Access_Control;Using Access Control List;https://doc.casthighlight.com/cloudreadypatterns/#Use_Access_Control;Id_041;FileSetAccessControl;Id_039&&(Id_040||Id_041)
+VB;Use_Configuration_Except_WebConfig;Using other configuration files than Web configuration;https://doc.casthighlight.com/cloudreadypatterns/#Use_Configuration_Except_WebConfig;Id_1000;ExtraConfFile;
+VB;Use_COM_Components;Using COM Components;https://doc.casthighlight.com/cloudreadypatterns/#Use_COM_Components;Id_046;ComImport;
+VB;Use_COM_Components;Using COM Components;https://doc.casthighlight.com/cloudreadypatterns/#Use_COM_Components;Id_047;UsingSystemRuntimeInteropServices;
+VB;Use_COM_Components;Using COM Components;https://doc.casthighlight.com/cloudreadypatterns/#Use_COM_Components;Id_1008;CsprojCOMReferenceInclude;
+VB;Use_Crypto_API;Using Crypto API;https://doc.casthighlight.com/cloudreadypatterns/#Use_Crypto_API;Id_064;UsingSystemSecurityCryptography;
+VB;Use_File_System;Using file system;https://doc.casthighlight.com/cloudreadypatterns/#Use_File_System;Id_057;HardCodedPath;
+VB;Use_OS_Dependency;Using system DLLs;https://doc.casthighlight.com/cloudreadypatterns/#Use_OS_Dependency;Id_038;DllImport;
+VB;Use_InterApplication_MiddleWare;Using a middleware application;https://doc.casthighlight.com/cloudreadypatterns/#Use_InterApplication_MiddleWare;Id_042;UsingSystemMessaging;
+VB;Use_InterApplication_MiddleWare;Using a middleware application;https://doc.casthighlight.com/cloudreadypatterns/#Use_InterApplication_MiddleWare;Id_043;UsingRabbitMQClient;
+VB;Use_InterApplication_MiddleWare;Using a middleware application;https://doc.casthighlight.com/cloudreadypatterns/#Use_InterApplication_MiddleWare;Id_044;UsingTIBCOEMS;
+VB;Use_InterApplication_MiddleWare;Using a middleware application;https://doc.casthighlight.com/cloudreadypatterns/#Use_InterApplication_MiddleWare;Id_045;UsingIBMWMQ;
+VB;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_001;UsingSystemIO;Id_001&&(Id_011||Id_013||Id_014)
+VB;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_011;DirectoryCreateDirectory;Id_001&&(Id_011||Id_013||Id_014)
+VB;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_012;DirectoryMove;Id_001&&(Id_011||Id_013||Id_014)
+VB;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_013;DirectoryDelete;Id_001&&(Id_011||Id_013||Id_014)
+VB;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_014;DirectoryExists;Id_001&&(Id_011||Id_013||Id_014)
+VB;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_001;UsingSystemIO;Id_001&&(Id_002||Id_003||Id_004||Id_005||Id_006)
+VB;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_002;FileMove;Id_001&&(Id_002||Id_003||Id_004||Id_005||Id_006)
+VB;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_003;FileCreate;Id_001&&(Id_002||Id_003||Id_004||Id_005||Id_006)
+VB;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_004;FileDelete;Id_001&&(Id_002||Id_003||Id_004||Id_005||Id_006)
+VB;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_005;FileCopy;Id_001&&(Id_002||Id_003||Id_004||Id_005||Id_006)
+VB;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_006;FileExists;Id_001&&(Id_002||Id_003||Id_004||Id_005||Id_006)
+VB;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_007;FileEncrypt;Id_001&&(Id_002||Id_003||Id_004||Id_005||Id_006)
+VB;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_008;FileDecrypt;Id_001&&(Id_002||Id_003||Id_004||Id_005||Id_006)
+VB;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_009;Open;Id_001&&(Id_002||Id_003||Id_004||Id_005||Id_006)
+VB;Use_Registry_Class;Using Windows registry;https://doc.casthighlight.com/cloudreadypatterns/#Use_Registry_Class;Id_020;UsingMicrosoftWin32;Id_020&&(Id_021||Id_022)
+VB;Use_Registry_Class;Using Windows registry;https://doc.casthighlight.com/cloudreadypatterns/#Use_Registry_Class;Id_021;RegistryGetValue;Id_020&&(Id_021||Id_022)
+VB;Use_Registry_Class;Using Windows registry;https://doc.casthighlight.com/cloudreadypatterns/#Use_Registry_Class;Id_022;RegistrySetValue;Id_020&&(Id_021||Id_022)
+VB;Use_Direct_RDBMS_Access;Using connection strings for database connection;https://doc.casthighlight.com/cloudreadypatterns/#Use_Direct_RDBMS_Access;Id_018;UsingSystemConfiguration;Id_018&&Id_034
+VB;Use_Direct_RDBMS_Access;Using connection strings for database connection;https://doc.casthighlight.com/cloudreadypatterns/#Use_Direct_RDBMS_Access;Id_034;ConfigurationManagerConnectionStrings;Id_018&&Id_034
+VB;Access_To_Environment_Variable;Access to environment variable;https://doc.casthighlight.com/cloudreadypatterns/#Access_To_Environment_Variable;Id_015;UsingSystem;Id_015&&(Id_016||Id_017)
+VB;Access_To_Environment_Variable;Access to environment variable;https://doc.casthighlight.com/cloudreadypatterns/#Access_To_Environment_Variable;Id_016;TempVarReading;Id_015&&(Id_016||Id_017)
+VB;Access_To_Environment_Variable;Access to environment variable;https://doc.casthighlight.com/cloudreadypatterns/#Access_To_Environment_Variable;Id_017;TempVarExpanding;Id_015&&(Id_016||Id_017)
+VB;Use_GetTempPath;Using GetTempPath;https://doc.casthighlight.com/cloudreadypatterns/#Use_GetTempPath;Id_001;UsingSystemIO;Id_001&&Id_010
+VB;Use_GetTempPath;Using GetTempPath;https://doc.casthighlight.com/cloudreadypatterns/#Use_GetTempPath;Id_010;GetTempPath;Id_001&&Id_010
+VB;Use_Impersonate_Identity;Using impersonate Identity;https://doc.casthighlight.com/cloudreadypatterns/#Use_Impersonate_Identity;Id_037;ImpersonationOption;Id_1007&&Id_037
+VB;Use_Impersonate_Identity;Using impersonate Identity;https://doc.casthighlight.com/cloudreadypatterns/#Use_Impersonate_Identity;Id_1007;WebConfigIdentityImpersonateTrue;Id_1007&&Id_037
+VB;Use_WebForm_Authentication;Using Webform Authentication;https://doc.casthighlight.com/cloudreadypatterns/#Use_WebForm_Authentication;Id_1003;WebConfigAuthenticationForm;
+VB;Use_Windows_Authentication;Use of Windows Authentication;https://doc.casthighlight.com/cloudreadypatterns/#Use_Windows_Authentication;Id_1004;WebConfigAuthenticationWindows;
+VB;Use_SecuredProtocols;Use of unsecured network protocols (HTTP, FTP);https://doc.casthighlight.com/cloudreadypatterns/#Use_SecuredProtocols;Id_095;URINotSecured;
+VB;Use_SecuredProtocolsHTTP;Use of unsecured network protocols (HTTP);https://doc.casthighlight.com/cloudreadypatterns/#Use_SecuredProtocols;Id_117;URINotSecuredHTTP;
+VB;Use_SecuredProtocolsFTP;Use of unsecured network protocols (FTP);https://doc.casthighlight.com/cloudreadypatterns/#Use_SecuredProtocols;Id_118;URINotSecuredFTP;
+VB;Use_Hardcoded_IP_Address;Using hardcoded network IP address (IPV4, IPV6);https://doc.casthighlight.com/cloudreadypatterns/#Use_Hardcoded_IP_Address;Id_096;HardCodedIP;
+VB;Use_Stateful_Session;Using stateful session (Servlet);https://doc.casthighlight.com/cloudreadypatterns/#Use_Stateful_Session;Id_097;Import_JavaxServletHttpHttpSession;Id_097&&Id_098
+VB;Use_Stateful_Session;Using stateful session (Servlet);https://doc.casthighlight.com/cloudreadypatterns/#Use_Stateful_Session;Id_098;HttpSession_setAttribute;Id_097&&Id_098
+VB;Use_Auto_Generated_Machine_Key;Using auto generated Machine Key;https://doc.casthighlight.com/cloudreadypatterns/#Use_Auto_Generated_Machine_Key;Id_1021;MachineKey_ValidationKey_AutoGenerate;
+VB;Use_SQL_Database_Unsecure_Authentication;Use an unsecured connection string;https://doc.casthighlight.com/cloudreadypatterns/#Use_SQL_Database_Unsecure_Authentication;Id_164;SQLDatabaseUnsecureAuthentication;
+VB;Use_HTTPProtocol;Hardcoded URLs using HTTP protocol;https://doc.casthighlight.com/cloudreadypatterns/#Use_HTTPProtocol;Id_189;HTTPProtocol;
+VB;Use_FTPProtocol;Hardcoded URLs using FTP protocol;https://doc.casthighlight.com/cloudreadypatterns/#Use_FTPProtocol;Id_205;FTPProtocol;
+VB;Use_LDAPProtocol;Hardcoded URLs using LDAP protocol;https://doc.casthighlight.com/cloudreadypatterns/#Use_LDAPProtocol;Id_206;LDAPProtocol;
+VB;Use_Unsecured_Data_Strings;Use of an unsecured data string;https://doc.casthighlight.com/cloudreadypatterns/#Use_Unsecured_Data_Strings;Id_260;SensitiveDataString;
+VB;Detect_Use_Log4net;Detect usage of Log4Net;https://doc.casthighlight.com/cloudreadypatterns/#Detect_Use_Log4net;Id_120;Log4Net;
+VB;Detect_Use_Log4net;Detect usage of Log4Net;https://doc.casthighlight.com/cloudreadypatterns/#Detect_Use_Log4net;Id_1013;Log4NetConfig;
+VB;Use_System_ServiceProcess;Using System.ServiceProcess (Windows services);https://doc.casthighlight.com/cloudreadypatterns/#Use_System_ServiceProcess;Id_169;Using_SystemServiceProcess;
+VB;Use_EventLog;Using EventLog in System.Diagnostics namespace;https://doc.casthighlight.com/cloudreadypatterns/#Use_EventLog;Id_167;New_EventLog;
+VB;Use_EventLog;Using EventLog in System.Diagnostics namespace;https://doc.casthighlight.com/cloudreadypatterns/#Use_EventLog;Id_168;New_EventLogTraceListener;
+VB;Use_EventLog;Using EventLog in System.Diagnostics namespace;https://doc.casthighlight.com/cloudreadypatterns/#Use_EventLog;Id_1020;Config_EventLogTraceListener;
+VB;Use_Sub_Processes;Using New Process in System.Diagnostics namespace;https://doc.casthighlight.com/cloudreadypatterns/#Use_Sub_Processes;Id_025;UsingSystemDiagnostics;Id_025&&Id_166
+VB;Use_Sub_Processes;Using New Process in System.Diagnostics namespace;https://doc.casthighlight.com/cloudreadypatterns/#Use_Sub_Processes;Id_166;New_Process;Id_025&&Id_166
+PYTHON;Use_File_System;Using file system;https://doc.casthighlight.com/cloudreadypatterns/#Use_File_System;Id_057;HardCodedPath;
+PYTHON;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_011;DirectoryCreateDirectory;
+PYTHON;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_012;DirectoryMove;
+PYTHON;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_013;DirectoryDelete;
+PYTHON;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_014;DirectoryExists;
+PYTHON;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_050;DirectoryCopy;
+PYTHON;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_171;DirectoryCurrent;
+PYTHON;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_172;DirectoryAccess;
+PYTHON;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_173;DirectoryChange;
+PYTHON;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_002;FileMove;
+PYTHON;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_003;FileCreate;
+PYTHON;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_004;FileDelete;
+PYTHON;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_005;FileCopy;
+PYTHON;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_009;Open;
+PYTHON;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_051;Write;
+PYTHON;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_094;New_FileInputStream;
+PYTHON;Access_To_Environment_Variable;Access to environment variable;https://doc.casthighlight.com/cloudreadypatterns/#Access_To_Environment_Variable;Id_174;EnvironmentVariable;
+PYTHON;Use_SecuredProtocols;Use of unsecured network protocols (HTTP, FTP);https://doc.casthighlight.com/cloudreadypatterns/#Use_SecuredProtocols;Id_095;URINotSecured;
+PYTHON;Use_SecuredProtocolsHTTP;Use of unsecured network protocols (HTTP);https://doc.casthighlight.com/cloudreadypatterns/#Use_SecuredProtocols;Id_117;URINotSecuredHTTP;
+PYTHON;Use_SecuredProtocolsFTP;Use of unsecured network protocols (FTP);https://doc.casthighlight.com/cloudreadypatterns/#Use_SecuredProtocols;Id_118;URINotSecuredFTP;
+PYTHON;Use_Hardcoded_IP_Address;Using hardcoded network IP address (IPV4, IPV6);https://doc.casthighlight.com/cloudreadypatterns/#Use_Hardcoded_IP_Address;Id_096;HardCodedIP;
+PYTHON;Launch_Sub_Processes;Launching sub processes;https://doc.casthighlight.com/cloudreadypatterns/#Launch_Sub_Processes;Id_170;LaunchSubProcess;
+PYTHON;Use_HTTPProtocol;Hardcoded URLs using HTTP protocol;https://doc.casthighlight.com/cloudreadypatterns/#Use_HTTPProtocol;Id_189;HTTPProtocol;
+PYTHON;Use_FTPProtocol;Hardcoded URLs using FTP protocol;https://doc.casthighlight.com/cloudreadypatterns/#Use_FTPProtocol;Id_205;FTPProtocol;
+PYTHON;Use_LDAPProtocol;Hardcoded URLs using LDAP protocol;https://doc.casthighlight.com/cloudreadypatterns/#Use_LDAPProtocol;Id_206;LDAPProtocol;
+PYTHON;Use_Unsecured_Data_Strings;Use of an unsecured data string;https://doc.casthighlight.com/cloudreadypatterns/#Use_Unsecured_Data_Strings;Id_260;SensitiveDataString;
+TYPESCRIPT;Use_Access_Control;Using Access Control List;https://doc.casthighlight.com/cloudreadypatterns/#Use_Access_Control;Id_071;New_AccessControlList;
+TYPESCRIPT;Use_Crypto_API;Using Crypto API;https://doc.casthighlight.com/cloudreadypatterns/#Use_Crypto_API;Id_064;UsingSystemSecurityCryptography;
+TYPESCRIPT;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_014;DirectoryExists;
+TYPESCRIPT;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_171;DirectoryCurrent;
+TYPESCRIPT;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_173;DirectoryChange;
+TYPESCRIPT;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_124;Path;
+TYPESCRIPT;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_002;FileMove;
+TYPESCRIPT;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_005;FileCopy;
+TYPESCRIPT;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_009;Open;
+TYPESCRIPT;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_094;New_FileInputStream;
+TYPESCRIPT;Access_To_Environment_Variable;Access to environment variable;https://doc.casthighlight.com/cloudreadypatterns/#Access_To_Environment_Variable;Id_174;EnvironmentVariable;
+TYPESCRIPT;Use_SecuredProtocols;Use of unsecured network protocols (HTTP, FTP);https://doc.casthighlight.com/cloudreadypatterns/#Use_SecuredProtocols;Id_095;URINotSecured;
+TYPESCRIPT;Use_SecuredProtocolsHTTP;Use of unsecured network protocols (HTTP);https://doc.casthighlight.com/cloudreadypatterns/#Use_SecuredProtocols;Id_117;URINotSecuredHTTP;
+TYPESCRIPT;Use_SecuredProtocolsFTP;Use of unsecured network protocols (FTP);https://doc.casthighlight.com/cloudreadypatterns/#Use_SecuredProtocols;Id_118;URINotSecuredFTP;
+TYPESCRIPT;Use_Hardcoded_IP_Address;Using hardcoded network IP address (IPV4, IPV6);https://doc.casthighlight.com/cloudreadypatterns/#Use_Hardcoded_IP_Address;Id_096;HardCodedIP;
+TYPESCRIPT;Avoid_Code_Skipped;Avoid code that can accidentally get skipped;https://doc.casthighlight.com/cloudreadypatterns/#Avoid_Code_Skipped;Id_125;CodeSkipped;
+TYPESCRIPT;Use_HTTPProtocol;Hardcoded URLs using HTTP protocol;https://doc.casthighlight.com/cloudreadypatterns/#Use_HTTPProtocol;Id_189;HTTPProtocol;
+TYPESCRIPT;Use_FTPProtocol;Hardcoded URLs using FTP protocol;https://doc.casthighlight.com/cloudreadypatterns/#Use_FTPProtocol;Id_205;FTPProtocol;
+TYPESCRIPT;Use_LDAPProtocol;Hardcoded URLs using LDAP protocol;https://doc.casthighlight.com/cloudreadypatterns/#Use_LDAPProtocol;Id_206;LDAPProtocol;
+TYPESCRIPT;Use_Unsecured_Data_Strings;Use of an unsecured data string;https://doc.casthighlight.com/cloudreadypatterns/#Use_Unsecured_Data_Strings;Id_260;SensitiveDataString;
+TYPESCRIPT;Use_Sub_Processes;Using New Process in System.Diagnostics namespace;https://doc.casthighlight.com/cloudreadypatterns/#Use_Sub_Processes;Id_166;New_Process;
+SCALA;Use_Access_Control;Using Access Control List;https://doc.casthighlight.com/cloudreadypatterns/#Use_Access_Control;Id_071;New_AccessControlList;
+SCALA;Use_File_System;Using file system;https://doc.casthighlight.com/cloudreadypatterns/#Use_File_System;Id_057;HardCodedPath;
+SCALA;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_050;DirectoryCopy;
+SCALA;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_055;DirectoryCreate;
+SCALA;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_056;IsDirectory;
+SCALA;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_002;FileMove;
+SCALA;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_003;FileCreate;
+SCALA;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_006;FileExists;
+SCALA;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_051;Write;
+SCALA;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_094;New_FileInputStream;
+SCALA;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_229;FileRead;
+SCALA;Access_To_Environment_Variable;Access to environment variable;https://doc.casthighlight.com/cloudreadypatterns/#Access_To_Environment_Variable;Id_174;EnvironmentVariable;
+SCALA;Use_GetTempPath;Using GetTempPath;https://doc.casthighlight.com/cloudreadypatterns/#Use_GetTempPath;Id_010;GetTempPath;
+SCALA;Use_SecuredProtocols;Use of unsecured network protocols (HTTP, FTP);https://doc.casthighlight.com/cloudreadypatterns/#Use_SecuredProtocols;Id_095;URINotSecured;
+SCALA;Use_SecuredProtocolsHTTP;Use of unsecured network protocols (HTTP);https://doc.casthighlight.com/cloudreadypatterns/#Use_SecuredProtocols;Id_117;URINotSecuredHTTP;
+SCALA;Use_SecuredProtocolsFTP;Use of unsecured network protocols (FTP);https://doc.casthighlight.com/cloudreadypatterns/#Use_SecuredProtocols;Id_118;URINotSecuredFTP;
+SCALA;Use_Hardcoded_IP_Address;Using hardcoded network IP address (IPV4, IPV6);https://doc.casthighlight.com/cloudreadypatterns/#Use_Hardcoded_IP_Address;Id_096;HardCodedIP;
+SCALA;Launch_Sub_Processes;Launching sub processes;https://doc.casthighlight.com/cloudreadypatterns/#Launch_Sub_Processes;Id_170;LaunchSubProcess;
+SCALA;Avoid_Code_Skipped;Avoid code that can accidentally get skipped;https://doc.casthighlight.com/cloudreadypatterns/#Avoid_Code_Skipped;Id_125;CodeSkipped;
+SCALA;Use_HTTPProtocol;Hardcoded URLs using HTTP protocol;https://doc.casthighlight.com/cloudreadypatterns/#Use_HTTPProtocol;Id_189;HTTPProtocol;
+SCALA;Use_FTPProtocol;Hardcoded URLs using FTP protocol;https://doc.casthighlight.com/cloudreadypatterns/#Use_FTPProtocol;Id_205;FTPProtocol;
+SCALA;Use_LDAPProtocol;Hardcoded URLs using LDAP protocol;https://doc.casthighlight.com/cloudreadypatterns/#Use_LDAPProtocol;Id_206;LDAPProtocol;
+SCALA;Use_Unsecured_Data_Strings;Use of an unsecured data string;https://doc.casthighlight.com/cloudreadypatterns/#Use_Unsecured_Data_Strings;Id_260;SensitiveDataString;
+SWIFT;Use_File_System;Using file system;https://doc.casthighlight.com/cloudreadypatterns/#Use_File_System;Id_057;HardCodedPath;
+SWIFT;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_055;DirectoryCreate;
+SWIFT;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_171;DirectoryCurrent;
+SWIFT;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_173;DirectoryChange;
+SWIFT;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_217;DirectoryOpen;
+SWIFT;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_003;FileCreate;
+SWIFT;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_005;FileCopy;
+SWIFT;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_006;FileExists;
+SWIFT;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_009;Open;
+SWIFT;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_051;Write;
+SWIFT;Access_To_Environment_Variable;Access to environment variable;https://doc.casthighlight.com/cloudreadypatterns/#Access_To_Environment_Variable;Id_174;EnvironmentVariable;
+SWIFT;Use_SecuredProtocols;Use of unsecured network protocols (HTTP, FTP);https://doc.casthighlight.com/cloudreadypatterns/#Use_SecuredProtocols;Id_095;URINotSecured;
+SWIFT;Use_SecuredProtocolsHTTP;Use of unsecured network protocols (HTTP);https://doc.casthighlight.com/cloudreadypatterns/#Use_SecuredProtocols;Id_117;URINotSecuredHTTP;
+SWIFT;Use_SecuredProtocolsFTP;Use of unsecured network protocols (FTP);https://doc.casthighlight.com/cloudreadypatterns/#Use_SecuredProtocols;Id_118;URINotSecuredFTP;
+SWIFT;Use_Hardcoded_IP_Address;Using hardcoded network IP address (IPV4, IPV6);https://doc.casthighlight.com/cloudreadypatterns/#Use_Hardcoded_IP_Address;Id_096;HardCodedIP;
+SWIFT;Launch_Sub_Processes;Launching sub processes;https://doc.casthighlight.com/cloudreadypatterns/#Launch_Sub_Processes;Id_170;LaunchSubProcess;
+SWIFT;Use_HTTPProtocol;Hardcoded URLs using HTTP protocol;https://doc.casthighlight.com/cloudreadypatterns/#Use_HTTPProtocol;Id_189;HTTPProtocol;
+SWIFT;Use_FTPProtocol;Hardcoded URLs using FTP protocol;https://doc.casthighlight.com/cloudreadypatterns/#Use_FTPProtocol;Id_205;FTPProtocol;
+SWIFT;Use_LDAPProtocol;Hardcoded URLs using LDAP protocol;https://doc.casthighlight.com/cloudreadypatterns/#Use_LDAPProtocol;Id_206;LDAPProtocol;
+SWIFT;Use_Unsecured_Data_Strings;Use of an unsecured data string;https://doc.casthighlight.com/cloudreadypatterns/#Use_Unsecured_Data_Strings;Id_260;SensitiveDataString;
+KOTLIN;Use_File_System;Using file system;https://doc.casthighlight.com/cloudreadypatterns/#Use_File_System;Id_057;HardCodedPath;
+KOTLIN;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_013;DirectoryDelete;
+KOTLIN;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_014;DirectoryExists;
+KOTLIN;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_050;DirectoryCopy;
+KOTLIN;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_055;DirectoryCreate;
+KOTLIN;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_003;FileCreate;
+KOTLIN;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_005;FileCopy;
+KOTLIN;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_009;Open;
+KOTLIN;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_051;Write;
+KOTLIN;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_094;New_FileInputStream;
+KOTLIN;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_229;FileRead;
+KOTLIN;Access_To_Environment_Variable;Access to environment variable;https://doc.casthighlight.com/cloudreadypatterns/#Access_To_Environment_Variable;Id_174;EnvironmentVariable;
+KOTLIN;Use_SecuredProtocols;Use of unsecured network protocols (HTTP, FTP);https://doc.casthighlight.com/cloudreadypatterns/#Use_SecuredProtocols;Id_095;URINotSecured;
+KOTLIN;Use_SecuredProtocolsHTTP;Use of unsecured network protocols (HTTP);https://doc.casthighlight.com/cloudreadypatterns/#Use_SecuredProtocols;Id_117;URINotSecuredHTTP;
+KOTLIN;Use_SecuredProtocolsFTP;Use of unsecured network protocols (FTP);https://doc.casthighlight.com/cloudreadypatterns/#Use_SecuredProtocols;Id_118;URINotSecuredFTP;
+KOTLIN;Use_Hardcoded_IP_Address;Using hardcoded network IP address (IPV4, IPV6);https://doc.casthighlight.com/cloudreadypatterns/#Use_Hardcoded_IP_Address;Id_096;HardCodedIP;
+KOTLIN;Launch_Sub_Processes;Launching sub processes;https://doc.casthighlight.com/cloudreadypatterns/#Launch_Sub_Processes;Id_170;LaunchSubProcess;
+KOTLIN;Use_HTTPProtocol;Hardcoded URLs using HTTP protocol;https://doc.casthighlight.com/cloudreadypatterns/#Use_HTTPProtocol;Id_189;HTTPProtocol;
+KOTLIN;Use_FTPProtocol;Hardcoded URLs using FTP protocol;https://doc.casthighlight.com/cloudreadypatterns/#Use_FTPProtocol;Id_205;FTPProtocol;
+KOTLIN;Use_LDAPProtocol;Hardcoded URLs using LDAP protocol;https://doc.casthighlight.com/cloudreadypatterns/#Use_LDAPProtocol;Id_206;LDAPProtocol;
+KOTLIN;Use_Unsecured_Data_Strings;Use of an unsecured data string;https://doc.casthighlight.com/cloudreadypatterns/#Use_Unsecured_Data_Strings;Id_260;SensitiveDataString;
+CLOJURE;Use_File_System;Using file system;https://doc.casthighlight.com/cloudreadypatterns/#Use_File_System;Id_057;HardCodedPath;
+CLOJURE;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_013;DirectoryDelete;
+CLOJURE;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_014;DirectoryExists;
+CLOJURE;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_050;DirectoryCopy;
+CLOJURE;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_055;DirectoryCreate;
+CLOJURE;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_171;DirectoryCurrent;
+CLOJURE;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_004;FileDelete;
+CLOJURE;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_005;FileCopy;
+CLOJURE;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_006;FileExists;
+CLOJURE;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_009;Open;
+CLOJURE;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_051;Write;
+CLOJURE;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_094;New_FileInputStream;
+CLOJURE;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_229;FileRead;
+CLOJURE;Access_To_Environment_Variable;Access to environment variable;https://doc.casthighlight.com/cloudreadypatterns/#Access_To_Environment_Variable;Id_174;EnvironmentVariable;
+CLOJURE;Use_SecuredProtocols;Use of unsecured network protocols (HTTP, FTP);https://doc.casthighlight.com/cloudreadypatterns/#Use_SecuredProtocols;Id_095;URINotSecured;
+CLOJURE;Use_SecuredProtocolsHTTP;Use of unsecured network protocols (HTTP);https://doc.casthighlight.com/cloudreadypatterns/#Use_SecuredProtocols;Id_117;URINotSecuredHTTP;
+CLOJURE;Use_SecuredProtocolsFTP;Use of unsecured network protocols (FTP);https://doc.casthighlight.com/cloudreadypatterns/#Use_SecuredProtocols;Id_118;URINotSecuredFTP;
+CLOJURE;Use_Hardcoded_IP_Address;Using hardcoded network IP address (IPV4, IPV6);https://doc.casthighlight.com/cloudreadypatterns/#Use_Hardcoded_IP_Address;Id_096;HardCodedIP;
+CLOJURE;Launch_Sub_Processes;Launching sub processes;https://doc.casthighlight.com/cloudreadypatterns/#Launch_Sub_Processes;Id_170;LaunchSubProcess;
+CLOJURE;Use_HTTPProtocol;Hardcoded URLs using HTTP protocol;https://doc.casthighlight.com/cloudreadypatterns/#Use_HTTPProtocol;Id_189;HTTPProtocol;
+CLOJURE;Use_FTPProtocol;Hardcoded URLs using FTP protocol;https://doc.casthighlight.com/cloudreadypatterns/#Use_FTPProtocol;Id_205;FTPProtocol;
+CLOJURE;Use_LDAPProtocol;Hardcoded URLs using LDAP protocol;https://doc.casthighlight.com/cloudreadypatterns/#Use_LDAPProtocol;Id_206;LDAPProtocol;
+CLOJURE;Use_Unsecured_Data_Strings;Use of an unsecured data string;https://doc.casthighlight.com/cloudreadypatterns/#Use_Unsecured_Data_Strings;Id_260;SensitiveDataString;
+CCPP;Use_Access_Control;Using Access Control List;https://doc.casthighlight.com/cloudreadypatterns/#Use_Access_Control;Id_071;New_AccessControlList;
+CCPP;Use_File_System;Using file system;https://doc.casthighlight.com/cloudreadypatterns/#Use_File_System;Id_057;HardCodedPath;
+CCPP;Use_OS_Dependency;Using system DLLs;https://doc.casthighlight.com/cloudreadypatterns/#Use_OS_Dependency;Id_038;DllImport;
+CCPP;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_013;DirectoryDelete;
+CCPP;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_014;DirectoryExists;
+CCPP;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_055;DirectoryCreate;
+CCPP;Directory_Manipulation_Practice;Perform Directory Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#Directory_Manipulation_Practice;Id_171;DirectoryCurrent;
+CCPP;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_004;FileDelete;
+CCPP;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_005;FileCopy;
+CCPP;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_006;FileExists;
+CCPP;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_009;Open;
+CCPP;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_094;New_FileInputStream;
+CCPP;File_Manipulation_Practice;Perform File Manipulation;https://doc.casthighlight.com/cloudreadypatterns/#File_Manipulation_Practice;Id_229;FileRead;
+CCPP;Use_Direct_RDBMS_Access;Using connection strings for database connection;https://doc.casthighlight.com/cloudreadypatterns/#Use_Direct_RDBMS_Access;Id_155;HardCodedConnectionString;
+CCPP;Access_To_Environment_Variable;Access to environment variable;https://doc.casthighlight.com/cloudreadypatterns/#Access_To_Environment_Variable;Id_174;EnvironmentVariable;
+CCPP;Use_GetTempPath;Using GetTempPath;https://doc.casthighlight.com/cloudreadypatterns/#Use_GetTempPath;Id_010;GetTempPath;
+CCPP;Use_Impersonate_Identity;Using impersonate Identity;https://doc.casthighlight.com/cloudreadypatterns/#Use_Impersonate_Identity;Id_265;IdentityImpersonateTrue;
+CCPP;Use_SecuredProtocols;Use of unsecured network protocols (HTTP, FTP);https://doc.casthighlight.com/cloudreadypatterns/#Use_SecuredProtocols;Id_095;URINotSecured;
+CCPP;Use_SecuredProtocolsHTTP;Use of unsecured network protocols (HTTP);https://doc.casthighlight.com/cloudreadypatterns/#Use_SecuredProtocols;Id_117;URINotSecuredHTTP;
+CCPP;Use_SecuredProtocolsFTP;Use of unsecured network protocols (FTP);https://doc.casthighlight.com/cloudreadypatterns/#Use_SecuredProtocols;Id_118;URINotSecuredFTP;
+CCPP;Use_Hardcoded_IP_Address;Using hardcoded network IP address (IPV4, IPV6);https://doc.casthighlight.com/cloudreadypatterns/#Use_Hardcoded_IP_Address;Id_096;HardCodedIP;
+CCPP;Use_SQL_Database_Unsecure_Authentication;Use an unsecured connection string;https://doc.casthighlight.com/cloudreadypatterns/#Use_SQL_Database_Unsecure_Authentication;Id_164;SQLDatabaseUnsecureAuthentication;
+CCPP;Use_HTTPProtocol;Hardcoded URLs using HTTP protocol;https://doc.casthighlight.com/cloudreadypatterns/#Use_HTTPProtocol;Id_189;HTTPProtocol;
+CCPP;Use_FTPProtocol;Hardcoded URLs using FTP protocol;https://doc.casthighlight.com/cloudreadypatterns/#Use_FTPProtocol;Id_205;FTPProtocol;
+CCPP;Use_LDAPProtocol;Hardcoded URLs using LDAP protocol;https://doc.casthighlight.com/cloudreadypatterns/#Use_LDAPProtocol;Id_206;LDAPProtocol;
+CCPP;Use_Unsecured_Data_Strings;Use of an unsecured data string;https://doc.casthighlight.com/cloudreadypatterns/#Use_Unsecured_Data_Strings;Id_260;SensitiveDataString;
+CCPP;Use_EventLog_CCpp;Logging to event viewer on Windows;https://doc.casthighlight.com/cloudreadypatterns/#Use_EventLog_CCpp;Id_167;New_EventLog;

@@ -1,0 +1,8 @@
+2022-01-26_10:54:30; list; 0; 0; listname; CCpp
+2022-01-26_10:54:30; list; 0; 0; nbfiles; 1
+2022-01-26_10:54:30; file; 0; 0; filename; C:\Users\NBA\workspace\CIGit\hlhf\Client\Perl\IntegrTests\CloudReady\CCPP\Id_FileDelete\KO_Id_FileDelete.cpp
+2022-01-26_10:54:30; file; 0; 0; lines; 17
+2022-01-26_10:54:30; file; 0; 0; basename; KO_Id_FileDelete.cpp
+2022-01-26_10:54:30; file; 0; 0; size; 529
+2022-01-26_10:54:30; file; 0; 0; abort; 1_0
+2022-01-26_10:54:30; list; 0; 0; info; 0

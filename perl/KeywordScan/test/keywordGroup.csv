@@ -1,0 +1,26 @@
+#KeywordScan; Pattern_Search
+#Type; keywordGroup
+
+FORMULA SECTION
+name;weight;sensitive;full_word;syntax;scope
+OCCURS;1;0;0;-;code;
+OCCURS_TXTVIEW;1;0;1;-;all;
+VARIABLES;1;0;1;-;code;
+VARIABLES_TXTVIEW;1;0;1;-;all;
+FETCH_CASE;1;1;0;-;code;
+SQL_FULLWORD;1;0;1;-;code;
+
+
+FILE SECTION
+Dat_FileName;Dat_AbortCause;FETCH_CASE;OCCURS;OCCURS_TXTVIEW;SQL_FULLWORD;VARIABLES;VARIABLES_TXTVIEW;
+testfile.y;None;0;2;2;6;0;1;
+
+
+FORMULA RESULT
+name;logic;
+OCCURS;-;
+OCCURS_TXTVIEW;-;
+VARIABLES;-;
+VARIABLES_TXTVIEW;-;
+FETCH_CASE;-;
+SQL_FULLWORD;-;

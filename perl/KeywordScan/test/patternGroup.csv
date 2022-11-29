@@ -1,0 +1,20 @@
+#KeywordScan; Pattern_Search
+#Type; patternGroup
+
+FORMULA SECTION
+name;weight;sensitive;full_word;syntax
+regex_group;2;1;1;valid;
+pattern_group;2;0;1;valid;
+pattern_group_bad_formula;2;0;1;valid;
+
+
+FILE SECTION
+Dat_FileName;Dat_AbortCause;pattern_group;pattern_group_bad_formula;regex_group;
+.//testfile.y;None;TRUE;FALSE;TRUE;
+
+
+FORMULA RESULT
+name;logic;
+regex_group;OK;
+pattern_group;OK;
+pattern_group_bad_formula;KO;

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="CAST_xs3p.xsl"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="UserScan">
+        <xs:complexType>
+            <xs:sequence minOccurs="1" maxOccurs="unbounded">
+                <xs:element name="keywordScan">
+                    <xs:complexType>
+                        <xs:choice minOccurs="1" maxOccurs="1">
+                            <xs:sequence minOccurs="1" maxOccurs="unbounded">
+                                <xs:element name="keywordGroup">
+                                    <xs:complexType>
+                                        <xs:sequence minOccurs="1" maxOccurs="unbounded">
+                                            <xs:element name="keywordItem">
+                                                <xs:complexType>
+                                                    <xs:simpleContent>
+															<xs:extension base="nonEmptyString255">
+                                                                <xs:attributeGroup ref="searchConfigurationKeywordItem"/>
+                                                                <xs:attribute name="id" use="required">
+                                                                    <xs:simpleType>
+                                                                        <xs:restriction base="nonEmptyString">
+                                                                            <xs:maxLength value="255"/>
+                                                                        </xs:restriction>
+                                                                    </xs:simpleType>
+                                                                </xs:attribute>
+                                                            </xs:extension>
+                                                    </xs:simpleContent>
+                                                </xs:complexType>
+                                            </xs:element>
+                                        </xs:sequence>
+                                        <xs:attributeGroup ref="groupDefinitionKeywordItem"/>
+                                    </xs:complexType>
+                                    <xs:unique name="uniqueKeywordItemId">
+                                        <xs:selector xpath="./keywordItem"/>
+                                        <xs:field xpath="@id"/>
+                                    </xs:unique>
+                                </xs:element>
+                            </xs:sequence>
+                            <xs:sequence minOccurs="1" maxOccurs="unbounded">
+                                <xs:element name="patternGroup">
+                                    <xs:complexType>
+                                        <xs:all>
+                                            <xs:element name="formula">
+                                                <xs:complexType>
+                                                    <xs:attribute name="value" type="nonEmptyString" use="required"/>
+                                                </xs:complexType>
+                                            </xs:element>
+                                            <xs:element name="patterns">
+                                                <xs:complexType>
+                                                    <xs:sequence minOccurs="1" maxOccurs="unbounded">
+                                                        <xs:element name="search">
+                                                            <xs:complexType>
+                                                                <xs:sequence minOccurs="1" maxOccurs="1">
+                                                                    <xs:element name="filename" minOccurs="1" maxOccurs="1">
+                                                                        <xs:simpleType>
+                                                                            <xs:restriction base="nonEmptyString">
+                                                                                <xs:minLength value="1"/>
+                                                                            </xs:restriction>
+                                                                        </xs:simpleType>
+                                                                    </xs:element>
+                                                                    <xs:choice minOccurs="1" maxOccurs="1">
+                                                                        <xs:element name="content" minOccurs="0" maxOccurs="1">
+                                                                            <xs:simpleType>
+                                                                                <xs:restriction base="nonEmptyString">
+                                                                                    <xs:minLength value="1"/>
+                                                                                </xs:restriction>
+                                                                            </xs:simpleType>
+                                                                        </xs:element>
+                                                                        <xs:element name="regexContent" minOccurs="0" maxOccurs="1">
+                                                                            <xs:simpleType>
+                                                                                <xs:restriction base="nonEmptyString">
+                                                                                    <xs:minLength value="1"/>
+                                                                                </xs:restriction>
+                                                                            </xs:simpleType>
+                                                                        </xs:element>
+                                                                    </xs:choice>
+                                                                </xs:sequence>
+                                                                <xs:attribute name="id" use="required">
+                                                                    <xs:simpleType>
+                                                                        <xs:restriction base="nonEmptyString">
+                                                                            <xs:maxLength value="255"/>
+                                                                        </xs:restriction>
+                                                                    </xs:simpleType>
+                                                                </xs:attribute>
+                                                                <xs:attributeGroup ref="searchConfigurationFormula"/>
+                                                            </xs:complexType>
+                                                        </xs:element>
+                                                    </xs:sequence>
+                                                </xs:complexType>
+                                                <xs:unique name="uniqueSearchId">
+                                                    <xs:selector xpath="./search"/>
+                                                    <xs:field xpath="@id"/>
+                                                </xs:unique>
+                                            </xs:element>
+                                        </xs:all>
+                                        <xs:attributeGroup ref="groupDefinitionFormula"/>
+                                    </xs:complexType>
+                                </xs:element>
+                            </xs:sequence>
+                        </xs:choice>
+                        <xs:attribute name="name" use="required">
+                            <xs:simpleType>
+                                <xs:restriction base="nonEmptyString">
+                                    <xs:maxLength value="255"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                        <xs:attribute name="version" type="xs:string"/>
+                    </xs:complexType>
+                    <xs:unique name="uniqueKeywordGroup">
+                        <xs:selector xpath="./keywordGroup|./patternGroup"/>
+                        <xs:field xpath="@name"/>
+                    </xs:unique>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+        <xs:unique name="uniqueKeywordgroup">
+            <xs:selector xpath="./keywordScan"/>
+            <xs:field xpath="@name"/>
+        </xs:unique>
+    </xs:element>
+    <xs:attributeGroup name="groupDefinitionKeywordItem">
+        <xs:attribute name="name" use="required">
+            <xs:simpleType>
+                <xs:restriction base="nonEmptyString">
+                    <xs:maxLength value="255"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="weight" default="2" type="xs:int"/>
+        <xs:attributeGroup ref="searchConfigurationKeywordItem"/>
+    </xs:attributeGroup>
+    <xs:attributeGroup name="groupDefinitionFormula">
+        <xs:attribute name="name" use="required">
+            <xs:simpleType>
+                <xs:restriction base="nonEmptyString">
+                    <xs:maxLength value="255"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="weight" default="2" type="xs:int"/>
+        <xs:attributeGroup ref="searchConfigurationFormula"/>
+    </xs:attributeGroup>
+    <xs:attributeGroup name="searchConfigurationKeywordItem">
+      
+      <xs:attribute name="sensitive" default="0">
+            <xs:simpleType>
+                <xs:restriction base="xs:int">
+                    <xs:enumeration value="0"/>
+                    <xs:enumeration value="1"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="full_word" default="1">
+            <xs:simpleType>
+                <xs:restriction base="xs:int">
+                    <xs:enumeration value="0"/>
+                    <xs:enumeration value="1"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="scope" default="all">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="all"/>
+                    <xs:enumeration value="comment"/>
+                    <xs:enumeration value="code"/>
+                    <xs:enumeration value="string"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        
+    </xs:attributeGroup>
+    <xs:attributeGroup name="searchConfigurationFormula">
+        <xs:attribute name="sensitive" default="0">
+            <xs:simpleType>
+                <xs:restriction base="xs:int">
+                    <xs:enumeration value="0"/>
+                    <xs:enumeration value="1"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="full_word" default="1">
+            <xs:simpleType>
+                <xs:restriction base="xs:int">
+                    <xs:enumeration value="0"/>
+                    <xs:enumeration value="1"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:attributeGroup>
+    <xs:simpleType name="nonEmptyString">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="nonEmptyString255">
+        <xs:restriction base="nonEmptyString">
+            <xs:maxLength value="255"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
+
+

@@ -1,0 +1,315 @@
+package framework::external;
+use strict;
+use warnings;
+
+my %DB = (
+	'CS' => {
+		'combination' => {
+			'PATTERNS' => {
+				'Rhino Mocks#0' => ['Rhino Mocks',undef,['( Rhino_base && Rhino_GenerateStub ) || ( Rhino_base && Rhino_CreateMock )'],undef,undef,undef,'Rhino Mocks#0','1',],
+			},
+		},
+		'code' => {
+			'PATTERNS' => {
+				'Nmock#2' => ['Nmock',undef,['\busing\s*NMock\b'],undef,undef,undef,'Nmock#2','1',],
+				'JustMock#0' => ['JustMock',undef,['\busing\s*Telerik\.JustMock\b'],undef,undef,undef,'JustMock#0','1',],
+				'Moq#0' => ['Moq',undef,['\busing\s*Moq\b'],undef,undef,undef,'Moq#0','1',],
+				'Nsubstitute#0' => ['Nsubstitute',undef,['\busing\s*Nsubstitute\b'],undef,undef,undef,'Nsubstitute#0','1',],
+				'monoRail#0' => ['monoRail',undef,['\busing\s*Castle.MonoRail\b'],undef,undef,undef,'monoRail#0','1',],
+				'Nancy#0' => ['Nancy',undef,['\bpublic\s*class\s*IndexModule\s*:\s*(?:Nancy::)?NancyModule\b'],undef,undef,undef,'Nancy#0','1',],
+				'Nmock#1' => ['Nmock',undef,['\busing\s*NMock3\b'],'3','3',undef,'Nmock#1','1',],
+				'CSLA#0' => ['CSLA',undef,['\busing\s*CSLA\b'],undef,undef,undef,'CSLA#0','1',],
+				'Nancy#1' => ['Nancy',undef,['\busing\s*Nancy\b'],undef,undef,undef,'Nancy#1','1',],
+				'FakeItEasy#0' => ['FakeItEasy',undef,['\busing\s*FakeItEasy\b'],undef,undef,undef,'FakeItEasy#0','1',],
+				'Aforge#0' => ['Aforge',undef,['\busing\s*Aforge\b'],undef,undef,undef,'Aforge#0','1',],
+				'Rhino_CreateMock' => ['Rhino Mocks',undef,['\bCreateMock<'],undef,undef,undef,'Rhino_CreateMock','0',],
+				'Rhino_GenerateStub' => ['Rhino Mocks',undef,['\bGenerateStub<'],undef,undef,undef,'Rhino_GenerateStub','0',],
+				'Nmock#0' => ['Nmock',undef,['\busing\s*NMock2\b'],'2','2',undef,'Nmock#0','1',],
+				'Rhino_base' => ['Rhino Mocks',undef,['\bMockRepository\b'],undef,undef,undef,'Rhino_base','0',],
+			},
+		},
+	},
+
+	'Python' => {
+		'code' => {
+			'PATTERNS' => {
+				'web.py#0' => ['web.py',undef,['(?:from|import)\s+web\b'],undef,undef,undef,'web.py#0','1',],
+				'Waitress#0' => ['Waitress',undef,['(?:from|import)\s+waitress\b'],undef,undef,undef,'Waitress#0','1',],
+				'Pyramid#0' => ['Pyramid',undef,['(?:from|import)\s+pyramid\.config\b'],undef,undef,undef,'Pyramid#0','1',],
+				'Pylons#0' => ['Pylons',undef,['(?:from|import)\s+pylons\b'],undef,undef,undef,'Pylons#0','1',],
+				'Zope#0' => ['Zope',undef,['(?:from|import)\s+zope\b'],undef,undef,undef,'Zope#0','1',],
+				'Web2py#0' => ['Web2py',undef,['(?:from|import)\s+gluon\b'],undef,undef,undef,'Web2py#0','1',],
+				'flask#0' => ['flask',undef,['(?:from|import)\s+flask\b'],undef,undef,undef,'flask#0','1',],
+				'Bottle#0' => ['Bottle',undef,['(?:from|import)\s+bottle\b'],undef,undef,undef,'Bottle#0','1',],
+				'AcidFS#0' => ['AcidFS',undef,['(?:from|import)\s+acidfs\b'],undef,undef,undef,'AcidFS#0','1',],
+				'WebOb#0' => ['WebOb',undef,['(?:from|import)\s+webob\b'],undef,undef,undef,'WebOb#0','1',],
+				'Twisted#0' => ['Twisted',undef,['(?:from|import)\s+twisted\b'],undef,undef,undef,'Twisted#0','1',],
+				'django#0' => ['django',undef,['(?:from|import)\s+django\b'],undef,undef,undef,'django#0','1',],
+				'TurboGears#0' => ['TurboGears',undef,['(?:from|import)\s+tg\b'],undef,undef,undef,'TurboGears#0','1',],
+				'CubicWeb#0' => ['CubicWeb',undef,['(?:from|import)\s+cubicweb\b'],undef,undef,undef,'CubicWeb#0','1',],
+				'pyjs#0' => ['pyjs',undef,['(?:from|import)\s+pyj[sd]\b'],undef,undef,undef,'pyjs#0','1',],
+				'Deform#0' => ['Deform',undef,['(?:from|import)\s+deform\b'],undef,undef,undef,'Deform#0','1',],
+				'Grok#0' => ['Grok',undef,['(?:from|import)\s+grok\b'],undef,undef,undef,'Grok#0','1',],
+				'Scrapy#0' => ['Scrapy',undef,['(?:from|import)\s+scrapy\b'],undef,undef,undef,'Scrapy#0','1',],
+				'SubstanceD#0' => ['SubstanceD',undef,['(?:from|import)\s+substanced\b'],undef,undef,undef,'SubstanceD#0','1',],
+				'CherryPy#0' => ['CherryPy',undef,['(?:from|import)\s+cherrypy\b'],undef,undef,undef,'CherryPy#0','1',],
+				'Tornado#0' => ['Tornado',undef,['(?:from|import)\s+tornado\b'],undef,undef,undef,'Tornado#0','1',],
+			},
+		},
+	},
+
+	'CCpp' => {
+		'code' => {
+			'PATTERNS' => {
+				'POCO#1' => ['POCO',undef,['(?:\busing namespace Poco\b|\bPoco::)'],undef,undef,undef,'POCO#1','1',],
+				'WxWidgets#0' => ['WxWidgets',undef,['#include <wx/wx(prec)?\.h>'],undef,undef,undef,'WxWidgets#0','1',],
+				'QT#4' => ['QT',undef,['#ifdef Q_WS_\w+'],undef,'4.x',undef,'QT#4','1',],
+				'STL#0' => ['STL',undef,['std::(array|deque|forward_list|list|map|multimap|priotiy_queue|queue|multiset|set|stack|vector|unordered_map|unordered_multimap|unordered_set|unordered_multiset|)\b'],undef,undef,undef,'STL#0','1',],
+				'POCO#0' => ['POCO',undef,['#include [<"]Poco/\w+\.h[>"]'],undef,undef,undef,'POCO#0','1',],
+				'MFC#0' => ['MFC',undef,['#include [<"]afx(?:win)?\.h[>"]'],undef,undef,undef,'MFC#0','1',],
+				'fltk#1' => ['fltk',undef,['\busing namespace fltk\b|\bfltk::'],undef,undef,undef,'fltk#1','1',],
+				'QT#6' => ['QT',undef,['\bQString\s+\w+'],undef,undef,undef,'QT#6','1',],
+				'SDL#0' => ['SDL',undef,['#include [<"]SDL/SDL\.h[>"]'],undef,undef,undef,'SDL#0','1',],
+				'fltk#0' => ['fltk',undef,['#include <fltk/\w+\.h>'],undef,undef,undef,'fltk#0','1',],
+				'boost#0' => ['boost',undef,['#include <boost/(\w+/)?\w+\.hpp>'],undef,undef,undef,'boost#0','1',],
+				'Tntnet#1' => ['Tntnet',undef,['#include [<"]tnt/tntnet\.h[>"]'],undef,undef,undef,'Tntnet#1','1',],
+				'KDE#0' => ['KDE',undef,['#include <(?:KApplication\b|kapp(?:lication)?\.h\b|kde/)'],undef,undef,undef,'KDE#0','1',],
+				'OpenGL#0' => ['OpenGL',undef,['#include [<"]GL/\w+\.h[>"]'],undef,undef,undef,'OpenGL#0','1',],
+				'JUCE#0' => ['JUCE',undef,['#include <juce_\w+\.h>'],undef,undef,undef,'JUCE#0','1',],
+				'QT#3' => ['QT',undef,['#ifdef Q_OS_\w+'],'5',undef,undef,'QT#3','1',],
+				'ultimate++#0' => ['ultimate++',undef,['(?:\busing namespace Upp\b|\bUpp::)'],undef,undef,undef,'ultimate++#0','1',],
+				'STL#1' => ['STL',undef,['#include <(array|deque|forward_list|list|map|multimap|priotiy_queue|queue|multiset|set|stack|vector|unordered_map|unordered_multimap|unordered_set|unordered_multiset|)>'],undef,undef,undef,'STL#1','1',],
+				'DirectX#0' => ['DirectX',undef,['#include <d3dx?\d+\.h>'],undef,undef,undef,'DirectX#0','1',],
+				'cegui#0' => ['cegui',undef,['#include <CEGUI/CEGUI\w+\.h>'],undef,undef,undef,'cegui#0','1',],
+				'Tntnet#0' => ['Tntnet',undef,['(?:\busing namespace tnt\b|\btnt::)'],undef,undef,undef,'Tntnet#0','1',],
+				'QT#5' => ['QT',undef,['#include <QtGui\b'],undef,undef,undef,'QT#5','1',],
+				'CppCMS#0' => ['CppCMS',undef,['#include <cppcms/application\.h>'],undef,undef,undef,'CppCMS#0','1',],
+				'Platinum#0' => ['Platinum',undef,['#include <Pt/\w+\.h>'],undef,undef,undef,'Platinum#0','1',],
+				'gtkmm#0' => ['gtkmm',undef,['#include  [<"]gtkmm(/\w+)?\.h[>"]'],undef,undef,undef,'gtkmm#0','1',],
+				'GTK#0' => ['GTK',undef,['#include <gtk/gtk.h>'],undef,undef,undef,'GTK#0','1',],
+				'Reason#0' => ['Reason',undef,['\busing namespace Reason::\w+'],undef,undef,undef,'Reason#0','1',],
+				'Wt#0' => ['Wt',undef,['#include [<"]Wt/WBreak[>"]'],undef,undef,undef,'Wt#0','1',],
+			},
+		},
+		'filecontent' => {
+			'PATTERNS' => {
+				'GTK#1' => ['GTK',['Makefile','makefile','*.mk','*.bat','*.sh','*.bash'],['\bgtk\+-3.0\b'],'3','3.x',undef,'GTK#1','1',],
+				'QT#1' => ['QT',['*.pro.user'],['\b<qtcreator>\b'],undef,undef,undef,'QT#1','1',],
+				'QT#2' => ['QT',['*.pro.user'],['\bQt4ProjectManager\b'],'4','4.x',undef,'QT#2','1',],
+				'QT#0' => ['QT',['*.pro'],['\bQtCreator\b'],undef,undef,undef,'QT#0','1',],
+			},
+		},
+	},
+
+	'PHP' => {
+		'combination' => {
+			'PATTERNS' => {
+				'PRADO#0' => ['PRADO',undef,['(prado_namespace || prado_usage) && prado_page_template && prado_appli_config'],undef,undef,undef,'PRADO#0','1',],
+				'Qcodo#0' => ['Qcodo',undef,['Qcode_Qform && Qcodo_prepend'],undef,undef,undef,'Qcodo#0','1',],
+				'Cotonti#0' => ['Cotonti',undef,['(cotonti_namespace || cotonti_usage) && contonti_call'],undef,undef,undef,'Cotonti#0','1',],
+				'Jelix#0' => ['Jelix',undef,['(Jelix_conf1 && Jelix_conf2 && Jelix_conf3 && Jelix_conf4 && Jelix_conf5 &&Jelix_conf6) && Jelix_jApp && ((Jelix_jController + Jelix_jCoordinator + Jelix_jRequest) > 0)'],undef,undef,undef,'Jelix#0','1',],
+				'Laravel#0' => ['Laravel',undef,['Illuminate_Database || Illuminate_others'],undef,undef,undef,'Laravel#0','1',],
+				'CodeIgniter#0' => ['CodeIgniter',undef,['extends_CI_Controller && extends_CI_Model && CI_load_view'],undef,undef,undef,'CodeIgniter#0','1',],
+				'Copix#0' => ['Copix',undef,['Copix_configuration && Copix_class_use'],undef,undef,undef,'Copix#0','1',],
+			},
+		},
+		'filename' => {
+			'PATTERNS' => {
+				'prado_appli_config' => ['PRADO',['application.xml'],undef,undef,undef,undef,'prado_appli_config','0',],
+				'Jelix_conf5' => ['Jelix',['config.ini.php'],undef,undef,undef,undef,'Jelix_conf5','0',],
+				'SilverStripe#0' => ['SilverStripe',['_ss_environment.php'],undef,undef,undef,undef,'SilverStripe#0','1',],
+				'Jelix_conf2' => ['Jelix',['module.xml'],undef,undef,undef,undef,'Jelix_conf2','0',],
+				'Copix_configuration' => ['Copix',['copix.conf.php'],undef,undef,undef,undef,'Copix_configuration','0',],
+				'CakePHP#1' => ['CakePHP',['*.ctp'],undef,undef,undef,undef,'CakePHP#1','1',],
+				'Jelix_conf1' => ['Jelix',['project.xml'],undef,undef,undef,undef,'Jelix_conf1','0',],
+				'Jelix_conf6' => ['Jelix',['profiles.ini.php'],undef,undef,undef,undef,'Jelix_conf6','0',],
+				'Jelix_conf3' => ['Jelix',['mainconfig.ini.php'],undef,undef,undef,undef,'Jelix_conf3','0',],
+				'Jelix_conf4' => ['Jelix',['localconfig.ini.php'],undef,undef,undef,undef,'Jelix_conf4','0',],
+			},
+		},
+		'filecontent' => {
+			'PATTERNS' => {
+				'prado_page_template' => ['PRADO',['*.page'],['<com:T'],undef,undef,undef,'prado_page_template','0',],
+			},
+		},
+		'code' => {
+			'PATTERNS' => {
+				'Xyster#0' => ['Xyster',undef,['\bXyster(?:_Acl|Collection|Controller|Data|Date|Db|Enum|Filter|Orm|Type|Validate)'],undef,undef,undef,'Xyster#0','1',],
+				'cotonti_namespace' => ['Cotonti',undef,['\bcotonti::'],undef,undef,undef,'cotonti_namespace','0',],
+				'CakePHP#0' => ['CakePHP',undef,['\b(?:use|new|extends)\s+Cake\\\\'],undef,undef,undef,'CakePHP#0','1',],
+				'prado_namespace' => ['PRADO',undef,['\b(?:Tapplication|Tpage|Prado)::'],undef,undef,undef,'prado_namespace','0',],
+				'FuelPHP#0' => ['FuelPHP',undef,['\b(?:use|new|extends)\s+Fuel\\\\core\\\\'],undef,undef,undef,'FuelPHP#0','1',],
+				'cotonti_usage' => ['Cotonti',undef,['\b(?:use|new|extends)\s+cotonti\b'],undef,undef,undef,'cotonti_usage','0',],
+				'Jelix_jController' => ['Jelix',undef,['\bjController::'],undef,undef,undef,'Jelix_jController','0',],
+				'Atomik#0' => ['Atomik',undef,['\bAtomik::run\('],undef,undef,undef,'Atomik#0','1',],
+				'Phalcon#0' => ['Phalcon',undef,['\b(?:use|new|extends)Phalcon\\\\'],undef,undef,undef,'Phalcon#0','1',],
+				'Jelix_jCoordinator' => ['Jelix',undef,['\bjCoodinator::'],undef,undef,undef,'Jelix_jCoordinator','0',],
+				'cotonti_call' => ['Cotonti',undef,['\bcot_\w\('],undef,undef,undef,'cotonti_call','0',],
+				'Jelix_jRequest' => ['Jelix',undef,['\bjRequest::'],undef,undef,undef,'Jelix_jRequest','0',],
+				'Illuminate_Database' => ['Laravel',undef,['\bIlluminate\\\\Database\\\\(?:Eloquent|Schema|Migration)\b'],undef,undef,undef,'Illuminate_Database','0',],
+				'extends_CI_Controller' => ['CodeIgniter',undef,['\bextends\s+CI_Controller\b'],undef,undef,undef,'extends_CI_Controller','0',],
+				'Yii#0' => ['Yii',undef,['\bYii::'],undef,undef,undef,'Yii#0','1',],
+				'Copix_class_use' => ['Copix',undef,['\b(?:use|new|extends)\s+Copix\w+'],undef,undef,undef,'Copix_class_use','0',],
+				'Zend#0' => ['Zend',undef,['\b(?:use|new|extends)\s+Zend\\\\'],undef,undef,undef,'Zend#0','1',],
+				'Midgard#0' => ['Midgard',undef,['midgardmvc_core'],undef,undef,undef,'Midgard#0','1',],
+				'Lithium#0' => ['Lithium',undef,['\bclass\s+\w+\s+extends\s+\\\\lithium\\\\'],undef,undef,undef,'Lithium#0','1',],
+				'Illuminate_others' => ['Laravel',undef,['\bIlluminate\\\\(?:Http|Support|Queue)\b'],undef,undef,undef,'Illuminate_others','0',],
+				'CI_load_view' => ['CodeIgniter',undef,['\$this->load->view\('],undef,undef,undef,'CI_load_view','0',],
+				'Jelix_jApp' => ['Jelix',undef,['\bjApp::'],undef,undef,undef,'Jelix_jApp','0',],
+				'Qcodo_prepend' => ['Qcodo',['text'],['\brequire(?:_once)?\s*\(?\s*\'.*?\/includes\/prepend\.inc\.php\''],undef,undef,undef,'Qcodo_prepend','0',],
+				'prado_usage' => ['PRADO',undef,['\b(?:use|new|extends)\s+(?:Tapplication|Tpage)\b'],undef,undef,undef,'prado_usage','0',],
+				'Symfony#0' => ['Symfony',undef,['\b(?:use|new|extends)\s+Symfony\\\\Component\\\\'],undef,undef,undef,'Symfony#0','1',],
+				'extends_CI_Model' => ['CodeIgniter',undef,['\bextends\s+CI_Model\b'],undef,undef,undef,'extends_CI_Model','0',],
+				'Zeta#0' => ['Zeta',undef,['\bezcBase\w*::'],undef,undef,undef,'Zeta#0','1',],
+				'Qcode_Qform' => ['Qcodo',undef,['\bclass\s+\w+\s+extends\s+QForm\b'],undef,undef,undef,'Qcode_Qform','0',],
+			},
+		},
+	},
+
+	'JS' => {
+		'filename' => {
+			'PATTERNS' => {
+				'knockout#0' => ['knockout',['*.js'],['\bknockout\b'],undef,undef,undef,'knockout#0','1',],
+				'Jquery#1' => ['Jquery',['*.js'],['\bjquery\b'],undef,undef,undef,'Jquery#1','1',],
+				'dojo#1' => ['dojo',['dojo.js'],undef,undef,undef,undef,'dojo#1','1',],
+			},
+		},
+		'dirname' => {
+			'PATTERNS' => {
+				'Durandal#0' => ['Durandal',['durandal'],undef,undef,undef,undef,'Durandal#0','1',],
+			},
+		},
+		'filecontent' => {
+			'PATTERNS' => {
+				'prototype#0' => ['prototype',['prototype.js'],['\bPrototype JavaScript framework\b'],undef,undef,undef,'prototype#0','1',],
+				'RequireJS#0' => ['RequireJS',['main.js'],['^\s*require\.config\('],undef,undef,undef,'RequireJS#0','1',],
+			},
+		},
+		'code' => {
+			'PATTERNS' => {
+				'openui5#0' => ['openui5',['code'],['\bsap\.ui\.'],undef,undef,undef,'openui5#0','1',],
+				'EmberJS#0' => ['EmberJS',['code'],['\bEmber\.'],undef,undef,undef,'EmberJS#0','1',],
+				'ExtJS#0' => ['ExtJS',['code'],['^\s*Ext\.application\('],undef,undef,undef,'ExtJS#0','1',],
+				'AngularJS#0' => ['AngularJS',['code'],['\bangular\.'],undef,undef,undef,'AngularJS#0','1',],
+				'Jquery#0' => ['Jquery',['code'],['[^\w]\$\('],undef,undef,undef,'Jquery#0','1',],
+				'Meteor#0' => ['Meteor',['code'],['\bMeteor\.'],undef,undef,undef,'Meteor#0','1',],
+				'Spine#0' => ['Spine',['code'],['\bSpine\.'],undef,undef,undef,'Spine#0','1',],
+				'Backbone#0' => ['Backbone',undef,['(?:=|new\b|,|:)\s*Backbone\.(?:Model|Event|Collection|Router)\b'],undef,undef,undef,'Backbone#0','1',],
+				'underscore#0' => ['underscore',undef,['\b_\.\w+\('],undef,undef,undef,'underscore#0','1',],
+				'Marionette#0' => ['Marionette',undef,['\bMarionette\.\w+View\.extend\b'],undef,undef,undef,'Marionette#0','1',],
+			},
+		},
+		'json' => {
+			'PATTERNS' => {
+				'Backbone.BabySitter#0' => ['Backbone.BabySitter',undef,undef,undef,undef,'i','Backbone.BabySitter#0','1',],
+				'Express#0' => ['Express',['express'],undef,undef,undef,'i','Express#0','1',],
+				'polymer#0' => ['polymer',['polymer'],undef,undef,undef,'i','polymer#0','1',],
+				'DerbyJS#0' => ['DerbyJS',['derby'],undef,undef,undef,'i','DerbyJS#0','1',],
+				'Backbone.Wreqr#0' => ['Backbone.Wreqr',undef,undef,undef,undef,'i','Backbone.Wreqr#0','1',],
+				'LoopBack#0' => ['LoopBack',['LoopBack'],undef,undef,undef,'i','LoopBack#0','1',],
+				'handlebars#0' => ['handlebars',undef,undef,undef,undef,'i','handlebars#0','1',],
+				'hapi#0' => ['hapi',['hapi'],undef,undef,undef,'i','hapi#0','1',],
+				'socket.io#0' => ['socket.io',['socket.io'],undef,undef,undef,'i','socket.io#0','1',],
+				'Less#0' => ['Less',['less'],undef,undef,undef,'i','Less#0','1',],
+				'sails#0' => ['sails',['sails'],undef,undef,undef,'i','sails#0','1',],
+				'geddy#0' => ['geddy',['geddy'],undef,undef,undef,'i','geddy#0','1',],
+				'bootstrap#0' => ['bootstrap',undef,undef,undef,undef,'i','bootstrap#0','1',],
+				'dojo#0' => ['dojo',['dojo-core'],undef,undef,undef,'i','dojo#0','1',],
+			},
+		},
+	},
+
+	'Java' => {
+		'maven' => {
+			'PATTERNS' => {
+				'objenesis#0' => ['objenesis',['org.objenesis'],undef,undef,undef,undef,'objenesis#0','1',],
+				'jsonPath#0' => ['jsonPath',['com.jayway.jsonpath'],undef,undef,undef,undef,'jsonPath#0','1',],
+				'powermock#0' => ['powermock',['org.powermock'],undef,undef,undef,undef,'powermock#0','1',],
+				'jettison#0' => ['jettison',['org.codehaus.jettison'],undef,undef,undef,undef,'jettison#0','1',],
+				'javassist#0' => ['javassist',['org.javassist'],undef,undef,undef,undef,'javassist#0','1',],
+				'apache commons#2' => ['apache commons',['commons-collections'],undef,undef,undef,undef,'apache commons#2','1',],
+				'HSQLDB#0' => ['HSQLDB',['org.hsqldb'],undef,undef,undef,undef,'HSQLDB#0','1',],
+				'ant#0' => ['ant',['ant'],undef,undef,undef,undef,'ant#0','1',],
+				'DbUnit#0' => ['DbUnit',['org.dbunit'],undef,undef,undef,undef,'DbUnit#0','1',],
+				'easymock#0' => ['easymock',['org.easymock'],undef,undef,undef,undef,'easymock#0','1',],
+				'JNA#0' => ['JNA',['net.java.dev.jna'],undef,undef,undef,undef,'JNA#0','1',],
+				'apache commons#4' => ['apache commons',['commons-fileupload'],undef,undef,undef,undef,'apache commons#4','1',],
+				'apache POI#0' => ['apache POI',['org.apache.poi'],undef,undef,undef,undef,'apache POI#0','1',],
+				'apache commons#3' => ['apache commons',['commons-io'],undef,undef,undef,undef,'apache commons#3','1',],
+				'log4j#0' => ['log4j',['log4j'],undef,undef,undef,undef,'log4j#0','1',],
+				'hamcrest#0' => ['hamcrest',['org.hamcrest'],undef,undef,undef,undef,'hamcrest#0','1',],
+				'apache commons#1' => ['apache commons',['commons-lang'],undef,undef,undef,undef,'apache commons#1','1',],
+				'junit#0' => ['junit',['junit'],undef,undef,undef,undef,'junit#0','1',],
+				'FreeMarker#0' => ['FreeMarker',['org.freemarker'],undef,undef,undef,undef,'FreeMarker#0','1',],
+				'jackson#0' => ['jackson',['org.codehaus.jackson'],undef,undef,undef,undef,'jackson#0','1',],
+				'jersey#0' => ['jersey',['org.glassfish.jersey'],undef,undef,undef,undef,'jersey#0','1',],
+				'spring#0' => ['spring',['org.springframework'],undef,undef,undef,undef,'spring#0','1',],
+				'apache commons#0' => ['apache commons',['commons-logging'],undef,undef,undef,undef,'apache commons#0','1',],
+				'Hibernate#4' => ['Hibernate',['org.hibernate'],undef,'1.x','2.x',undef,'Hibernate#4','1',],
+				'json-simple#0' => ['json-simple',['com.googlecode.json-simple'],undef,undef,undef,undef,'json-simple#0','1',],
+				'SLF4J#0' => ['SLF4J',['org.slf4j'],undef,undef,undef,undef,'SLF4J#0','1',],
+				'protobuf#0' => ['protobuf',['com.google.protobuf'],undef,undef,undef,undef,'protobuf#0','1',],
+			},
+		},
+		'filename' => {
+			'PATTERNS' => {
+				'spring#6' => ['spring',['*.jar'],['\bjsf-api\b'],undef,undef,undef,'spring#6','1',],
+				'Hibernate#6' => ['Hibernate',['*.jar'],['\bhibernate3\b'],'3','3.x',undef,'Hibernate#6','1',],
+				'GWT#0' => ['GWT',['*.gwt.xml'],undef,undef,undef,undef,'GWT#0','1',],
+				'spring#2' => ['spring',['*.jar'],['\bspring-core.jar$'],'2','2.x',undef,'spring#2','1',],
+				'spring#4' => ['spring',['*.jar'],['\borg.springframework.core-3\b'],'3','3.x',undef,'spring#4','1',],
+				'Hibernate#7' => ['Hibernate',['*.jar'],['\bhibernate-core\b'],undef,undef,undef,'Hibernate#7','1',],
+				'log4j#1' => ['log4j',['*.jar'],['\blog4j\b'],undef,undef,undef,'log4j#1','1',],
+				'dom4j#0' => ['dom4j',['*.jar'],['\bdom4j\b'],undef,undef,undef,'dom4j#0','1',],
+				'mx4j#0' => ['mx4j',['*.jar'],['\bmx4j\b'],undef,undef,undef,'mx4j#0','1',],
+				'spring#7' => ['spring',['*.jar'],['\bfaces-api-2\b'],'2','2.x',undef,'spring#7','1',],
+				'commons-logging#0' => ['commons-logging',['*.jar'],['\bcommons-logging\b'],undef,undef,undef,'commons-logging#0','1',],
+				'Hibernate#5' => ['Hibernate',['*.jar'],['\bhibernate2\b'],'2','2.x',undef,'Hibernate#5','1',],
+				'spring#5' => ['spring',['*.jar'],['\bspring-core\b'],undef,undef,undef,'spring#5','1',],
+				'spring#3' => ['spring',['*.jar'],['\bspring-1.2\b'],'1.2','1.2.x',undef,'spring#3','1',],
+				'struts#2' => ['struts',['*.jar'],['\bstruts-core-1.3\b'],'1.3','1.3.x',undef,'struts#2','1',],
+				'struts#1' => ['struts',['*.jar'],['\bstruts-1.2\b'],'1.2','1.2.x',undef,'struts#1','1',],
+				'struts#0' => ['struts',['*.jar'],['\bstruts.jar$'],'1.1','1.2.x','dir:yes','struts#0','1',],
+				'spring#1' => ['spring',['*.jar'],['\bspring.jar$'],'1','2.x',undef,'spring#1','1',],
+				'spring#8' => ['spring',['*.jar'],['\bjavax.faces-2\b'],'2','2.x',undef,'spring#8','1',],
+				'struts#3' => ['struts',['*.jar'],['\bstruts2-core-2\b'],'2','2.x',undef,'struts#3','1',],
+				'junit#1' => ['junit',['*.jar'],['\bjunit\b'],undef,undef,undef,'junit#1','1',],
+			},
+		},
+		'filecontent' => {
+			'PATTERNS' => {
+				'struts#5' => ['struts',['*.xml'],['\bstruts\b'],undef,undef,undef,'struts#5','1',],
+				'struts#4' => ['struts',['*.xml'],['\bstruts2?[_\-\.][\w\-\.]*\.jar'],undef,undef,undef,'struts#4','1',],
+				'Oracle ADF#0' => ['Oracle ADF',['adf-config.xml','adf-settings.xml'],['\bxmlns(?::config)?="http:\/\/xmlns.oracle.com\/'],undef,undef,undef,'Oracle ADF#0','1',],
+				'OFBiz#1' => ['OFBiz',['*.xml'],[':\w+="http:\/\/ofbiz.apache.org\/'],undef,undef,undef,'OFBiz#1','1',],
+			},
+		},
+		'code' => {
+			'PATTERNS' => {
+				'Hibernate#0' => ['Hibernate',undef,['\bimport\s+org.hibernate\b'],'1.x','3.x',undef,'Hibernate#0','1',],
+				'CORBA#0' => ['CORBA',undef,['\bimport\s+org\.omg\.CORBA\b'],undef,undef,undef,'CORBA#0','1',],
+				'Oracle ADF#1' => ['Oracle ADF',undef,['\bimport\s+oracle\.adf\.'],undef,undef,undef,'Oracle ADF#1','1',],
+				'OFBiz#0' => ['OFBiz',undef,['\bimport\s+org\.(?:apache)?\.ofbiz\.'],undef,undef,undef,'OFBiz#0','1',],
+				'Sling#0' => ['Sling',undef,['\bimport\s+org\.(?:apache)?\.sling\.'],undef,undef,undef,'Sling#0','1',],
+				'Jspx#0' => ['Jspx',undef,['import eg.java.net.web.jspx'],undef,undef,undef,'Jspx#0','1',],
+				'JAXR#0' => ['JAXR',undef,['\bimport\s+java\.xml\.registry\b'],undef,undef,undef,'JAXR#0','1',],
+				'Hibernate#3' => ['Hibernate',undef,['\bimport\s+org.hibernate4\b'],'1.x','4.x',undef,'Hibernate#3','1',],
+				'JPA#0' => ['JPA',undef,['\bimport\s+javax\.persistence\b'],undef,undef,undef,'JPA#0','1',],
+				'Hibernate#2' => ['Hibernate',undef,['\bimport\s+org.hibernate3\b'],undef,undef,undef,'Hibernate#2','1',],
+				'GWT#1' => ['GWT',undef,['\bimport\s+com\.google.gwt\.'],undef,undef,undef,'GWT#1','1',],
+				'vaadin#0' => ['vaadin',undef,['\bimport\s+com\.vaadin\.'],undef,undef,undef,'vaadin#0','1',],
+				'Hibernate#1' => ['Hibernate',undef,['\bimport\s+org.hibernate2\b'],undef,undef,undef,'Hibernate#1','1',],
+				'RMI#0' => ['RMI',undef,['\bimport\s+java\.rmi\b'],undef,undef,undef,'RMI#0','1',],
+			},
+		},
+	},
+
+);
+
+sub getDB($) {
+	my $techno =shift;
+	
+	return $DB{$techno};
+}
+
+1;

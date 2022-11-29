@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bom version="1" xmlns="http://cyclonedx.org/schema/bom/1.3">
+  <metadata>
+    <timestamp>2022-11-29T09:13:06Z</timestamp>
+    <tools>
+      <tool>
+        <vendor>CAST Highlight</vendor>
+        <name>CAST Highlight</name>
+        <version>5.4.50.0</version>
+      </tool>
+    </tools>
+    <component type="application" bom-ref="TestApp-TestDep">
+      <supplier>
+        <name>UK SandBox</name>
+        <contact>
+          <name>Bhanu Prakash</name>
+          <email>b.prakash+UKSandBox@castsoftware.com</email>
+        </contact>
+      </supplier>
+      <name>TestApp</name>
+      <version>TestDep</version>
+    </component>
+  </metadata>
+  <components/>
+  <dependencies>
+    <dependency ref="TestApp-TestDep"/>
+  </dependencies>
+</bom>

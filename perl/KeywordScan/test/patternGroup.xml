@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UserScan xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="KeywordModel.xsd">
+
+	<keywordScan name="Pattern_Search">
+		<patternGroup name="regex_group" sensitive="1">
+			<patterns>
+				<search id="pattern" sensitive="0">
+					<filename>testfile.*</filename>
+					<regexContent>SQL(?:CODE)?</regexContent>
+				</search>
+				<search id="pattern_s" sensitive="1">
+					<filename>testfile.*</filename>
+					<regexContent>SqL(?:CODE)?</regexContent>
+				</search>
+			</patterns>
+		    <formula value="pattern or pattern_s"/>
+		</patternGroup>
+		<patternGroup name="pattern_group" full_word="1">
+			<patterns>
+				<search id="pattern" sensitive="0">
+					<filename>testfile.*</filename>
+					<content>ERROR</content>
+				</search>
+				<search id="pattern_s" sensitive="1">
+					<filename>testfile.*</filename>
+					<content>MAINLINE</content>
+				</search>
+			</patterns>
+		    <formula value="pattern and pattern_s"/>
+		</patternGroup>	
+		<patternGroup name="pattern_group_bad_formula">
+			<patterns>
+				<search id="pattern" sensitive="0">
+					<filename>testfile.*</filename>
+					<content>ERROR</content>
+				</search>
+				<search id="pattern_s" sensitive="1">
+					<filename>testfile.*</filename>
+					<content>NULL</content>
+				</search>
+			</patterns>
+		    <formula value="pattern and pattern_s"/>
+		</patternGroup>	
+	</keywordScan>
+</UserScan>
