@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bom version="1" xmlns="http://cyclonedx.org/schema/bom/1.3">
   <metadata>
-    <timestamp>2022-11-29T09:13:06Z</timestamp>
+    <timestamp>2022-11-29T10:32:45Z</timestamp>
     <tools>
       <tool>
         <vendor>CAST Highlight</vendor>
