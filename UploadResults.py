@@ -13,6 +13,7 @@ import xml.dom.minidom
 from xml.dom import minidom
 import os
 import re
+from lxml import etree
 
 class UploadResults():
 
@@ -74,7 +75,6 @@ class UploadResults():
         sDownloadStatus=response.status_code
         if sDownloadStatus==200:
             #print(response.text)
-            #with open("C:/DATA/GITRepo/com.castsoftware.uc.hl.dt/response.xml", "w") as f:
             with open(cycloneDXPath, "w") as f:
                 f.write(response.text)
     
@@ -128,25 +128,27 @@ class UploadResults():
 
         xml_str = root.toprettyxml(indent ="\t") 
         
-        #save_path_file = "C:\\DATA\\GITRepo\\com.castsoftware.uc.hl.dt\\response_pom.xml"
-
         
         with open(save_path_file, "w") as f:
             f.write(xml_str) 
         
-        #self.removeDuplicateTags(save_path_file,outputPOM)
-        
-       # with open(save_path_file, "r+") as f1:
-        #    f1.seek(0)
-         #   f1.writelines('<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" <modelVersion>4.0.0</modelVersion>')
-    
+        self.removeDuplicateTags(save_path_file,outputPOM)
+            
     def removeDuplicateTags(self,save_path_file,outputPOM):
+        
+        
+        file = open(outputPOM, "r")
+        #read content of file to string
+        data = file.read()
+        #get number of occurrences of the substring in the string
+        global occurrences_previous
+        occurrences_previous = data.count("<dependency>")   
 
         unique_tag_list=[]
         unwanted_tag_list=[]
         tag_list_1=[]
         tag_list_2=[]
-        tag_list_3=['\n\t<dependencies>\n','</project>']
+        tag_list_3=['\n\t</dependencies>\n','</project>']
 
         #extrating required data from xml using regex
         with open(save_path_file, 'r') as f:
@@ -179,15 +181,20 @@ class UploadResults():
         with open(outputPOM, "w") as f2:
             for i in tag_list_1:
                 f2.write(i)
+        file = open(outputPOM, "r")
+        #read content of file to string
+        data = file.read()
+        #get number of occurrences of the substring in the string
+        global occurrences_latest
+        occurrences_latest = data.count("<dependency>")   
 
 print('\nCAST HL Scan')
 print('Copyright (c) 2022 CAST Software Inc.\n')
 print('If you need assistance, please contact Bhanu Prakash (BBA) from the CAST IN PS team\n')
 
-#args = ['C:\\DATA\\GITRepo\\com.castsoftware.uc.hl.dt\\HighlightAutomation.jar', '--sourceDir "C:\\Users\\BBA\\Desktop\\HL Automation\\Source"', '--workingDir "C:\\Users\\BBA\\Desktop\\HL Automation\\HLResults"', '--analyzerDir "C:\\DATA\\GITRepo\\com.castsoftware.uc.hl.dt\\perl"', '--companyId 21160', '--applicationId 148193', '--snapshotLabel Test1', '--login b.prakash+FoundationSoft@castsoftware.com', '--password Welcome1234', '--serverUrl https://rpa.casthighlight.com/'] # Any number of args to be passed to the jar file
  
 #HL Command line parameters
-#extract output_path from properties.txt file
+#extract parameters from properties.txt file
 dirname = os.path.dirname(__file__)
 properties_file=dirname+'\\Configuration\\Properties.txt'
 with open(properties_file,'r') as f:
@@ -241,43 +248,23 @@ save_path_file=save_path_file[1]
 outputPOM=outputPOM.split('=')
 outputPOM=outputPOM[1]
 
-#hlJarPath='C:\\DATA\\GITRepo\\com.castsoftware.uc.hl.dt\\HighlightAutomation.jar'
-#sourceDir='C:\\Users\\BBA\\Desktop\\HL Automation\\Source'
-#workingDir='C:\\Users\\BBA\\Desktop\\HL Automation\\HLResults'
-#analyzerDir='C:\\DATA\\GITRepo\\com.castsoftware.uc.hl.dt\\perl'
-#companyId='2085'
-#applicationId='156808'
-#snapshotLabel='TestDep'
-#serverUrl='https://rpa.casthighlight.com/'
-#basicAuth='Yi5wcmFrYXNoK3Vrc2FuZGJveEBjYXN0c29mdHdhcmUuY29tOldlbGNvbWUxMjM0'
-
 #Arguments to pass in HighlightAutomation 
 args = [f'{hlJarPath}', '--sourceDir', f'{sourceDir}', '--workingDir' , f'{workingDir}', '--analyzerDir', f'{analyzerDir}', '--companyId', f'{companyId}', '--applicationId', f'{applicationId}', '--snapshotLabel', f'{snapshotLabel}', '--basicAuth', f'{basicAuth}', '--serverUrl', f'{serverUrl}'] # Any number of args to be passed to the jar file
 
-#1. Run HL Scan and upload results
-#objHLScan=UploadResults()
-#result = objHLScan.jarWrapper(*args)
-#print(result)
-
-#2. Genarte BOM in Cyclone DX format
-#objGenBOM=UploadResults()
-#objGenBOM.generateBOMRequest(applicationId,companyId,basicAuth,cycloneDXOutput)
-
-#3. Parse response XML (BOM) and generate a new pom.xml for HL Scan and relaunch the scan
-#objxmlParser=UploadResults()
-#objxmlParser.xmlParsing(cycloneDXOutput,save_path_file,outputPOM)
-
+occurrences_previous=0
+occurrences_latest=0
 obj=UploadResults()
-for iter in range(10):
-    #1. Run HL Scan and upload results
-    #objHLScan=UploadResults()
-    result = obj.jarWrapper(*args)
-    print(result)
+for iter in range(100):
+    if occurrences_previous!=occurrences_latest or occurrences_previous==0:    
+        #1. Run HL Scan and upload results
+        result = obj.jarWrapper(*args)
+        print(result)
 
-    #2. Genarte BOM in Cyclone DX format
-    #objGenBOM=UploadResults()
-    obj.generateBOMRequest(applicationId,companyId,basicAuth,cycloneDXOutput)
+        #2. Genarte BOM in Cyclone DX format
+        obj.generateBOMRequest(applicationId,companyId,basicAuth,cycloneDXOutput)
 
-    #3. Parse response XML (BOM) and generate a new pom.xml for HL Scan and relaunch the scan
-    #objxmlParser=UploadResults()
-    obj.xmlParsing(cycloneDXOutput,save_path_file,outputPOM)
+        #3. Parse response XML (BOM) and generate a new pom.xml for HL Scan and relaunch the scan
+        obj.xmlParsing(cycloneDXOutput,save_path_file,outputPOM)
+    else:
+        exit
+    
