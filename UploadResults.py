@@ -1,5 +1,3 @@
-from logging import DEBUG, info, warn
-from logger import Logger
 from subprocess import *
 import subprocess
 from requests import codes
@@ -251,6 +249,7 @@ outputPOM=outputPOM[1]
 #Arguments to pass in HighlightAutomation 
 args = [f'{hlJarPath}', '--sourceDir', f'{sourceDir}', '--workingDir' , f'{workingDir}', '--analyzerDir', f'{analyzerDir}', '--companyId', f'{companyId}', '--applicationId', f'{applicationId}', '--snapshotLabel', f'{snapshotLabel}', '--basicAuth', f'{basicAuth}', '--serverUrl', f'{serverUrl}'] # Any number of args to be passed to the jar file
 
+#Number of <dependency> tags pereviously and in latest POM XML
 occurrences_previous=0
 occurrences_latest=0
 obj=UploadResults()
