@@ -2,7 +2,6 @@ from logging import DEBUG, info, warn
 from logger import Logger
 from subprocess import *
 import subprocess
-from restAPI import RestCall
 from requests import codes
 from pandas import DataFrame
 from pandas import json_normalize
