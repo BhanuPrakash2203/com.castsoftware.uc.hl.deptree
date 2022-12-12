@@ -42,7 +42,7 @@ This section contains a list of all the 3rd party dependencies which are used in
 * lxml -  library for processing XML and HTML
 
 These tools can be isntalled via the python PIP command 
-pip install <COMPONENT NAME>
+pip install <COMPONENT NAME> or  pip install -r requrements.txt
 
 #### Prerequisites
 Python should have to be installed in the machine from where one need to run this tool
