@@ -1,5 +1,5 @@
 # Highlight BOM Dependency Tree
-The script is used to generate a dependency of Components upto the last level  
+The script is used to generate a dependency tree of Components upto the last level  
 
 ## Installation
 * Download and unpack the latest release of the dependency tree tool from https://github.com/BhanuPrakash2203/com.castsoftware.uc.hl.deptree
