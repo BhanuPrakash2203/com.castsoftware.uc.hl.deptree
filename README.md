@@ -50,6 +50,9 @@ Python should have to be installed in the machine from where one need to run thi
 ### How it works
 * This is a three step process
    * Run HL Scan and upload results - runs the source code analysis and uploads the result.
+      * The utity uses the Highlight CLIs (HighlightAutomation.jar) to run the sscan and upload the reusults into mentioned Highlight instance.
+         * Note : Always use the latest version of HighlightAutomation.jar downloading it from Highlight Instance https://rpa.casthighlight.com
+      * All the required parameters to pass as an argument to the jar file can be configured in properties.txt file, found under configuration folder.
    * Genarte BOM in CycloneDX format - extacts the report is cyclone dx format using a non public API.
    * Parse response XML (BOM) and generate a new pom.xml for HL Scan and relaunch the scan - Parses the BOM and extract the dependency information from there. Then          injects the same for creating a new POM.xml file.
 Note : All the there steps above runs in loop until these doesn't find any difference between previously analyzed and the latest pom.zml files.   
