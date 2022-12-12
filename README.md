@@ -4,8 +4,6 @@ The script is used to generate a dependency of Components upto the last level
 ## Installation
 * Download and unpack the latest release of the dependency tree tool from https://github.com/BhanuPrakash2203/com.castsoftware.uc.hl.deptree
    
-* Unpack the Source Code zip file (arg)
-* Unpack the com.castsoftware.uc.python.common.zip into a separate folder
 * Install/update required third party packages. 
     * Open a command prompt 
     * run: pip install -r requrements.txt
@@ -17,7 +15,7 @@ The script is designed to run on the command line. It internally uses a properti
     py UploadResults.py 
 
 # Properties file
-The Assessment Deck Generation Tool is configured using a plain test file.  The file is consists of various parameters which are required and need to be changed before running the tool.  
+The HL Dependency Tool is configured using a plain text file.  The file consists of various parameters which are required and need to be changed before running the tool.  
 #### General Configuration
 The general configuration section contains four parts,  
 * hlJarPath - jar file of Higlight Automation (HighlightAutomation.jar)
