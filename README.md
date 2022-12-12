@@ -26,7 +26,7 @@ The general configuration section contains four parts,
 * applicationId - Application ID of HIghlight Instance
 * snapshotLabel - Provide the snapshot label, it can be any meaningful text
 * serverUrl - Provide the HL server URL default is https://rpa.casthighlight.com/
-* basicAuth - 
+* basicAuth - Base64 encoding of UserName:Password
 * cyclodxOutput - Path to save the cyclonedx out xml file
 * save_path_file - Path to save the intermediate POM file
 * outputpom - Path to save the filtered POM file, this path should be in same as the source path which HL is going to consider for analysis
