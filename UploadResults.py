@@ -12,10 +12,11 @@ from xml.dom import minidom
 import os
 import re
 from lxml import etree
+import shutil
 
 class UploadResults():
 
-    def jarWrapper(self,*args):
+    def runHLAnalysis(self,*args):
         process = Popen(['java', '-jar']+list(args), stdout=PIPE, stderr=PIPE)
         ret = []
         while process.poll() is None:
@@ -73,10 +74,10 @@ class UploadResults():
         sDownloadStatus=response.status_code
         if sDownloadStatus==200:
             #print(response.text)
-            with open(cycloneDXPath, "w") as f:
+            with open(cycloneDXPath, "w+") as f:
                 f.write(response.text)
     
-    def xmlParsing(self,cycloneDXOutput,save_path_file,outputPOM):
+    def xmlParsing(self,cycloneDXOutput,save_path_file,outputPOM,newOutputFolder):
         #mytree = ET.parse('C:\\DATA\\GITRepo\\com.castsoftware.uc.hl.dt\\response.xml',parser = ET.XMLParser(encoding = 'iso-8859-5'))
         mytree = ET.parse(cycloneDXOutput,parser = ET.XMLParser(encoding = 'iso-8859-5'))
         myroot = mytree.getroot()
@@ -126,15 +127,22 @@ class UploadResults():
 
         xml_str = root.toprettyxml(indent ="\t") 
         
+        if not os.path.exists(newOutputFolder):
+            # if the demo_folder directory is not present 
+            # then create it.
+            os.makedirs(newOutputFolder)
+        outPath=os.listdir(newOutputFolder)    
+        if len(outPath)==0:
+            shutil.copy(outputPOM,newOutputFolder)
         
-        with open(save_path_file, "w") as f:
+        with open(save_path_file, "w+") as f:
             f.write(xml_str) 
         
-        self.removeDuplicateTags(save_path_file,outputPOM)
+        self.removeDuplicateTags(save_path_file,newOutputFolder)
             
     def removeDuplicateTags(self,save_path_file,outputPOM):
         
-        
+        outputPOM=outputPOM+'\pom.xml'
         file = open(outputPOM, "r")
         #read content of file to string
         data = file.read()
@@ -171,12 +179,13 @@ class UploadResults():
         for i in range(len(unique_tag_list)):
             unique_tag_list[i]='\n\t\t'+unique_tag_list[i]
 
-        #combinig all the data together
+        #Combining all the data together
         tag_list_1.extend(unique_tag_list)
         tag_list_1.extend(tag_list_3)
 
+        
         #writing combined data together to a output xml file
-        with open(outputPOM, "w") as f2:
+        with open(outputPOM, "w+") as f2:
             for i in tag_list_1:
                 f2.write(i)
         file = open(outputPOM, "r")
@@ -209,9 +218,60 @@ with open(properties_file,'r') as f:
     cycloneDXOutput=path_list[9].strip()
     save_path_file=path_list[10].strip()
     outputPOM=path_list[11].strip()
+    newOutputFolder=path_list[12].strip()
 
 hlJarPath=hlJarPath.split('=')
 hlJarPath=hlJarPath[1]
+if hlJarPath=='hlJarPath=':
+    print('HL Aoutmation JAR path is not defined')
+    exit()
+
+if sourceDir=='sourceDir=':
+    print('Source Directory path is not defined')
+    exit()
+
+if workingDir=='workingDir=':
+    print('Working Directory path is not defined')
+    exit()
+
+if analyzerDir=='analyzerDir=':
+    print('Analyze Directory path is not defined')
+    exit()
+
+if companyId=='companyId=':
+    print('Company ID is not defined')
+    exit()
+if applicationId=='applicationId=':
+    print('Application ID is not defined')
+    exit()
+
+if snapshotLabel=='snapshotLabel=':
+    print('Snapshot Lable is not defined')
+    exit()
+
+if serverUrl=='serverUrl=':
+    print('Highlight Instance Server URL is not defined')
+    exit()
+
+if basicAuth=='basicAuth=':
+    print('Basic Authentication(UserID:Password) is not defined')
+    exit()
+
+if cycloneDXOutput=='cycloneDXOutput=':
+    print('Output CycloneDX path is not defined')
+    exit()
+
+if save_path_file=='save_path_file=':
+    print('Parsed POM.xml path is not defined')
+    exit()           
+
+if outputPOM=='outputPOM=':
+    print('Output POM location is not defined')
+    exit()    
+
+if newOutputFolder=='newOutputFolder=':
+    print('New output POM directory path is not defined')
+    exit()
 
 sourceDir=sourceDir.split('=')
 sourceDir=sourceDir[1]
@@ -246,6 +306,9 @@ save_path_file=save_path_file[1]
 outputPOM=outputPOM.split('=')
 outputPOM=outputPOM[1]
 
+newOutputFolder=newOutputFolder.split('=')
+newOutputFolder=newOutputFolder[1]
+
 #Arguments to pass in HighlightAutomation 
 args = [f'{hlJarPath}', '--sourceDir', f'{sourceDir}', '--workingDir' , f'{workingDir}', '--analyzerDir', f'{analyzerDir}', '--companyId', f'{companyId}', '--applicationId', f'{applicationId}', '--snapshotLabel', f'{snapshotLabel}', '--basicAuth', f'{basicAuth}', '--serverUrl', f'{serverUrl}'] # Any number of args to be passed to the jar file
 
@@ -256,14 +319,26 @@ obj=UploadResults()
 for iter in range(100):
     if occurrences_previous!=occurrences_latest or occurrences_previous==0:    
         #1. Run HL Scan and upload results
-        result = obj.jarWrapper(*args)
-        print(result)
+        try:
+            result = obj.runHLAnalysis(*args)
+            print(result)
+        except:
+            print('Error occurred during Highlight scan')
+            exit()
 
         #2. Genarte BOM in Cyclone DX format
-        obj.generateBOMRequest(applicationId,companyId,basicAuth,cycloneDXOutput)
+        try:
+            obj.generateBOMRequest(applicationId,companyId,basicAuth,cycloneDXOutput)
+        except:
+            print('Error occurred during generating BOM')
+            exit()
 
         #3. Parse response XML (BOM) and generate a new pom.xml for HL Scan and relaunch the scan
-        obj.xmlParsing(cycloneDXOutput,save_path_file,outputPOM)
+        try:
+            obj.xmlParsing(cycloneDXOutput,save_path_file,outputPOM,newOutputFolder)
+        except:
+            print('Error occurred during Parsing BOM')
+            exit()
     else:
-        exit
+        exit()
     

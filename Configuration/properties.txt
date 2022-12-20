@@ -1,12 +1,13 @@
 hlJarPath=C:\DATA\GITRepo\com.castsoftware.uc.hl.dt\HighlightAutomation.jar
-sourceDir=C:\Users\BBA\Desktop\HL Automation\Source
-workingDir=C:\Users\BBA\Desktop\HL Automation\HLResults
+sourceDir=C:\Users\BBA\Desktop\Data_12-09-2022\HL Automation\Source
+workingDir=C:\Users\BBA\Desktop\Data_12-09-2022\HL Automation\HLResults
 analyzerDir=C:\DATA\GITRepo\com.castsoftware.uc.hl.dt\perl
 companyId=2085
 applicationId=156808
 snapshotLabel=TestDep
 serverUrl=https://rpa.casthighlight.com/
-basicAuth=
+basicAuth=Yi5wcmFrYXNoK3Vrc2FuZGJveEBjYXN0c29mdHdhcmUuY29tOldlbGNvbWUxMjM0
 cyclodxOutput=C:\DATA\GITRepo\com.castsoftware.uc.hl.dt\response.xml
 save_path_file=C:\DATA\GITRepo\com.castsoftware.uc.hl.dt\response_pom.xml
-outputpom=C:\Users\BBA\Desktop\HL Automation\Source\pom.xml
+outputpom=C:\Users\BBA\Desktop\Data_12-09-2022\HL Automation\Source\pom.xml
+newOutputFolder=C:\Users\BBA\Desktop\Data_12-09-2022\HL Automation\Source\outPutPOM
