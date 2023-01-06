@@ -195,7 +195,7 @@ class UploadResults():
         global occurrences_latest
         occurrences_latest = data.count("<dependency>")   
 
-print('\nCAST HL Scan')
+print('\nCAST HL Scan - Version 1.0')
 print('Copyright (c) 2022 CAST Software Inc.\n')
 print('If you need assistance, please contact Bhanu Prakash (BBA) from the CAST IN PS team\n')
 
@@ -220,29 +220,96 @@ with open(properties_file,'r') as f:
     outputPOM=path_list[11].strip()
     newOutputFolder=path_list[12].strip()
 
+
+
+
 hlJarPath=hlJarPath.split('=')
 hlJarPath=hlJarPath[1]
-if hlJarPath=='hlJarPath=':
+
+if hlJarPath=='':
     print('HL Aoutmation JAR path is not defined')
     exit()
 
-if sourceDir=='sourceDir=':
+if not os.path.exists(hlJarPath):  
+    print('HL Aoutmation JAR path does not exist')
+    exit()
+
+if not hlJarPath.endswith('.jar'):
+    print('HL Aoutmation JAR file does not exist')
+    exit()
+
+
+sourceDir=sourceDir.split('=')
+sourceDir=sourceDir[1]
+
+if sourceDir=='':
     print('Source Directory path is not defined')
     exit()
 
-if workingDir=='workingDir=':
+if not os.path.exists(sourceDir):  
+    print('Source Directory path does not exist')
+    exit()
+
+if not os.listdir(sourceDir):
+    print('Source Directory is empty')
+    exit()
+    
+
+
+workingDir=workingDir.split('=')
+workingDir=workingDir[1]
+
+if workingDir=='':
     print('Working Directory path is not defined')
     exit()
 
-if analyzerDir=='analyzerDir=':
+if not os.path.exists(workingDir):  
+    print('Working Directory does not exist')
+    exit()
+
+
+analyzerDir=analyzerDir.split('=')
+analyzerDir=analyzerDir[1]
+
+if analyzerDir=='':
     print('Analyze Directory path is not defined')
     exit()
 
-if companyId=='companyId=':
+if not os.path.exists(analyzerDir):  
+    print('Analyze Directory does not exist')
+    exit()
+
+flag=0
+for subdir, dirs, files in os.walk(analyzerDir):
+    for file in files:
+        if file.endswith('.pm'):
+            flag=1
+            break
+if flag==0:
+    print('Analyze Directory does not contain perl libraries')
+    exit()
+
+
+companyId=companyId.split('=')
+companyId=companyId[1]
+
+if companyId=='':
     print('Company ID is not defined')
     exit()
-if applicationId=='applicationId=':
+
+if not companyId.isnumeric():
+    print('Company ID is not a numeric value')
+    exit()
+
+applicationId=applicationId.split('=')
+applicationId=applicationId[1]
+
+if applicationId=='':
     print('Application ID is not defined')
+    exit()
+
+if not applicationId.isnumeric():
+    print('Application ID is not a numeric value')
     exit()
 
 if snapshotLabel=='snapshotLabel=':
@@ -257,36 +324,64 @@ if basicAuth=='basicAuth=':
     print('Basic Authentication(UserID:Password) is not defined')
     exit()
 
-if cycloneDXOutput=='cycloneDXOutput=':
+
+cycloneDXOutput=cycloneDXOutput.split('=')
+cycloneDXOutput=cycloneDXOutput[1]
+
+if cycloneDXOutput=='':
     print('Output CycloneDX path is not defined')
     exit()
 
-if save_path_file=='save_path_file=':
+# if not os.listdir(cycloneDXOutput):
+#     print('Output CycloneDX Directory is empty')
+#     exit()
+
+if not os.path.exists(cycloneDXOutput):  
+    print('Output CycloneDX path does not exist')
+    exit()
+
+
+save_path_file=save_path_file.split('=')
+save_path_file=save_path_file[1]
+
+if save_path_file=='':
     print('Parsed POM.xml path is not defined')
+    exit()
+
+# if not os.listdir(save_path_file):
+#     print('save_path_file Directory is empty')
+#     exit()
+
+if not os.path.exists(save_path_file):  
+    print('save_path_file path does not exist')
     exit()           
 
-if outputPOM=='outputPOM=':
-    print('Output POM location is not defined')
-    exit()    
 
-if newOutputFolder=='newOutputFolder=':
+outputPOM=outputPOM.split('=')
+outputPOM=outputPOM[1]
+
+if outputPOM=='':
+    print('Output POM location is not defined')
+    exit()   
+
+if not os.path.exists(outputPOM):  
+    print('outputPOM path does not exist')
+    exit()            
+
+
+newOutputFolder=newOutputFolder.split('=')
+newOutputFolder=newOutputFolder[1]
+
+if newOutputFolder=='':
     print('New output POM directory path is not defined')
     exit()
 
-sourceDir=sourceDir.split('=')
-sourceDir=sourceDir[1]
+if not os.path.exists(newOutputFolder):  
+    print('New output POM directory path does not exist')
+    exit() 
 
-workingDir=workingDir.split('=')
-workingDir=workingDir[1]
 
-analyzerDir=analyzerDir.split('=')
-analyzerDir=analyzerDir[1]
 
-companyId=companyId.split('=')
-companyId=companyId[1]
-
-applicationId=applicationId.split('=')
-applicationId=applicationId[1]
 
 snapshotLabel=snapshotLabel.split('=')
 snapshotLabel=snapshotLabel[1]
@@ -297,17 +392,9 @@ serverUrl=serverUrl[1]
 basicAuth=basicAuth.split('=')
 basicAuth=basicAuth[1]
 
-cycloneDXOutput=cycloneDXOutput.split('=')
-cycloneDXOutput=cycloneDXOutput[1]
 
-save_path_file=save_path_file.split('=')
-save_path_file=save_path_file[1]
 
-outputPOM=outputPOM.split('=')
-outputPOM=outputPOM[1]
 
-newOutputFolder=newOutputFolder.split('=')
-newOutputFolder=newOutputFolder[1]
 
 #Arguments to pass in HighlightAutomation 
 args = [f'{hlJarPath}', '--sourceDir', f'{sourceDir}', '--workingDir' , f'{workingDir}', '--analyzerDir', f'{analyzerDir}', '--companyId', f'{companyId}', '--applicationId', f'{applicationId}', '--snapshotLabel', f'{snapshotLabel}', '--basicAuth', f'{basicAuth}', '--serverUrl', f'{serverUrl}'] # Any number of args to be passed to the jar file
@@ -340,5 +427,13 @@ for iter in range(100):
             print('Error occurred during Parsing BOM')
             exit()
     else:
+        if os.path.exists(cycloneDXOutput) and cycloneDXOutput.endswith('response.xml'):
+            os.remove(cycloneDXOutput)
+
+        if os.path.exists(save_path_file) and save_path_file.endswith('response_pom.xml'):
+            os.remove(save_path_file)
+
         exit()
-    
+
+
+   
