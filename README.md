@@ -6,7 +6,7 @@ The script is used to generate a dependency tree of Components upto the last lev
    
 * Install/update required third party packages. 
     * Open a command prompt 
-    * run: pip install -r requrements.txt   (requirements.txt file can be found inside configuration folder)
+    * run: pip install -r Configuration/requirements.txt   (requirements.txt file can be found inside configuration folder)
     * Run py UploadResults.py from command prompt
 
 ## Usage
