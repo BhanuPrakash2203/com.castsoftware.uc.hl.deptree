@@ -1,3 +1,4 @@
+import json
 from subprocess import *
 import subprocess
 from requests import codes
@@ -203,29 +204,27 @@ print('If you need assistance, please contact Bhanu Prakash (BBA) from the CAST 
 #HL Command line parameters
 #extract parameters from properties.txt file
 dirname = os.path.dirname(__file__)
-properties_file=dirname+'\\Configuration\\Properties.txt'
-with open(properties_file,'r') as f:
-    path_list = f.read().split('\n')
-    hlJarPath=path_list[0].strip()
-    sourceDir=path_list[1].strip()
-    workingDir=path_list[2].strip()
-    analyzerDir=path_list[3].strip()
-    companyId=path_list[4].strip()
-    applicationId=path_list[5].strip()
-    snapshotLabel=path_list[6].strip()
-    serverUrl=path_list[7].strip()
-    basicAuth=path_list[8].strip()
-    cycloneDXOutput=path_list[9].strip()
-    save_path_file=path_list[10].strip()
-    outputPOM=path_list[11].strip()
-    newOutputFolder=path_list[12].strip()
+properties_file=dirname+'\\Configuration\\properties.json'
+
+with open(properties_file, 'r') as f:
+  data = json.load(f)
+
+hlJarPath=data["hlJarPath"]
+sourceDir=data["sourceDir"]
+workingDir=data["workingDir"]
+analyzerDir=data["analyzerDir"]
+companyId=data["companyId"]
+applicationId=data["applicationId"]
+snapshotLabel=data["snapshotLabel"]
+serverUrl=data["serverUrl"]
+basicAuth=data["basicAuth"]
+cycloneDXOutput=data["cyclodxOutput"]
+save_path_file=data["save_path_file"]
+outputPOM=data["outputpom"]
+newOutputFolder=data["newOutputFolder"]
 
 
-
-
-hlJarPath=hlJarPath.split('=')
-hlJarPath=hlJarPath[1]
-if hlJarPath=='':
+if hlJarPath=='' or str(hlJarPath).isspace():
     print('HL Aoutmation JAR path is not defined')
     exit()
 if not os.path.exists(hlJarPath):  
@@ -236,9 +235,7 @@ if not hlJarPath.endswith('.jar'):
     exit()
 
 
-sourceDir=sourceDir.split('=')
-sourceDir=sourceDir[1]
-if sourceDir=='':
+if sourceDir=='' or str(sourceDir).isspace():
     print('Source Directory path is not defined')
     exit()
 if not os.path.exists(sourceDir):  
@@ -249,9 +246,7 @@ if not os.listdir(sourceDir):
     exit()
     
 
-workingDir=workingDir.split('=')
-workingDir=workingDir[1]
-if workingDir=='':
+if workingDir=='' or str(workingDir).isspace():
     print('Working Directory path is not defined')
     exit()
 if not os.path.exists(workingDir):  
@@ -259,9 +254,7 @@ if not os.path.exists(workingDir):
     exit()
 
 
-analyzerDir=analyzerDir.split('=')
-analyzerDir=analyzerDir[1]
-if analyzerDir=='':
+if analyzerDir=='' or str(analyzerDir).isspace():
     print('Analyze Directory path is not defined')
     exit()
 if not os.path.exists(analyzerDir):  
@@ -279,9 +272,7 @@ if flag==0:
     exit()
 
 
-companyId=companyId.split('=')
-companyId=companyId[1]
-if companyId=='':
+if companyId=='' or str(companyId).isspace():
     print('Company ID is not defined')
     exit()
 if not companyId.isnumeric():
@@ -289,9 +280,7 @@ if not companyId.isnumeric():
     exit()
 
 
-applicationId=applicationId.split('=')
-applicationId=applicationId[1]
-if applicationId=='':
+if applicationId=='' or str(applicationId).isspace():
     print('Application ID is not defined')
     exit()
 if not applicationId.isnumeric():
@@ -299,29 +288,22 @@ if not applicationId.isnumeric():
     exit()
 
 
-snapshotLabel=snapshotLabel.split('=')
-snapshotLabel=snapshotLabel[1]
-if snapshotLabel=='':
+if snapshotLabel=='' or str(snapshotLabel).isspace():
     print('Snapshot Lable is not defined')
     exit()
 
 
-serverUrl=serverUrl.split('=')
-serverUrl=serverUrl[1]
-if serverUrl=='':
+if serverUrl=='' or str(serverUrl).isspace():
     print('Highlight Instance Server URL is not defined')
     exit()
 
-basicAuth=basicAuth.split('=')
-basicAuth=basicAuth[1]
-if basicAuth=='':
+
+if basicAuth=='' or str(basicAuth).isspace():
     print('Basic Authentication(UserID:Password) is not defined')
     exit()
 
 
-cycloneDXOutput=cycloneDXOutput.split('=')
-cycloneDXOutput=cycloneDXOutput[1]
-if cycloneDXOutput=='':
+if cycloneDXOutput=='' or str(cycloneDXOutput).isspace():
     print('Output CycloneDX path is not defined')
     exit()
 if not os.path.exists(cycloneDXOutput):  
@@ -332,9 +314,7 @@ if cycloneDXOutput==sourceDir:
     exit()
 
 
-save_path_file=save_path_file.split('=')
-save_path_file=save_path_file[1]
-if save_path_file=='':
+if save_path_file=='' or str(save_path_file).isspace():
     print('Parsed POM.xml path is not defined')
     exit()
 if not os.path.exists(save_path_file):  
@@ -345,9 +325,7 @@ if save_path_file==sourceDir:
     exit()         
 
 
-outputPOM=outputPOM.split('=')
-outputPOM=outputPOM[1]
-if outputPOM=='':
+if outputPOM=='' or str(outputPOM).isspace():
     print('Output POM location is not defined')
     exit()   
 if not os.path.exists(outputPOM):  
@@ -364,9 +342,7 @@ if flag==0:
     exit()            
 
 
-newOutputFolder=newOutputFolder.split('=')
-newOutputFolder=newOutputFolder[1]
-if newOutputFolder=='':
+if newOutputFolder=='' or str(newOutputFolder).isspace():
     print('New output POM directory path is not defined')
     exit()
 if not os.path.exists(newOutputFolder):  
