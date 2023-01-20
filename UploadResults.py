@@ -19,6 +19,7 @@ class UploadResults():
     
     # Routine 1 : Runs the HL analysis using highlight automation jar file
     def runHLAnalysis(self,*args):
+        '''
         process = Popen(['java', '-jar']+list(args), stdout=PIPE, stderr=PIPE)
         ret = []
         while process.poll() is None:
@@ -31,7 +32,29 @@ class UploadResults():
         if stderr != b'':
             ret += str(stderr).split('\n')
         #ret.remove(b'')
+        return ret 
+        '''
+        #Getting OS name
+        osName = os.name
+        #Setting Carriage Return options depending on OS
+        if osName == "nt":
+            sCR = b"\r\n"
+            lCR = 4
+        else:
+            sCR = b"\n"
+            lCR = 2
+        #Launching java process to run CLI
+        process = Popen(["java", "-jar"]+list(args), stdout=PIPE, stderr=PIPE)
+        while process.poll() is None:
+            line = process.stdout.readline()
+            #Slicing line : removing leading b', and closing Carriage Return and ', then removing whitespaces
+            sLine = str(line)[2:-(lCR+1)].strip()
+            if sLine != "":
+                print("   ",sLine)
+        #Getting return status
+        ret = process.returncode
         return ret
+
     
     #WIP - Will be used for validating if scan is completed successfully
     def checkScan(self,appl_id):
@@ -271,7 +294,9 @@ if workingDir=='' or str(workingDir).isspace():
     exit()
 if not os.path.exists(workingDir):  
     print('Working Directory does not exist')
-    exit()
+    print('Creating Working Directory...')
+    print('Created '+workingDir+'\n')
+    os.makedirs(workingDir)
 
 
 if analyzerDir=='' or str(analyzerDir).isspace():
@@ -386,6 +411,8 @@ obj=UploadResults()
 # Criteria 1 - If Previous occurrences of tags are equal to latest occurrences
 # Criteria 2 - If occurrences reach 100
 for iter in range(100):
+
+    '''
     if occurrences_previous!=occurrences_latest or occurrences_previous==0:    
         #1. Run HL Scan and upload results
         try:
@@ -394,6 +421,48 @@ for iter in range(100):
         except:
             print('Error occurred during Highlight scan')
             exit()
+    '''
+
+    if occurrences_previous!=occurrences_latest or occurrences_previous==0:
+        print("Iteration #", iter+1)        
+        #1. Run HL Scan and upload results
+        result = -1
+        try:
+            print("Calling CLI...")
+            result = obj.runHLAnalysis(*args)
+        except:
+            print('Error occurred during Highlight scan.')
+            exit()
+        #Exiting if CLI returns an error status != 0
+        if result != 0:
+            if result == 1:
+                print("1 - Command Line general failure")
+                exit()
+            elif result == 2:
+                print("2 - Command Line options parse error")
+                exit()
+            elif result == 3:
+                print("3 - Command Line techno discovery error")
+                exit()
+            elif result == 4:
+                print("4 - Command Line analysis error")
+                exit()
+            elif result == 5:
+                print("5 - Command Line result upload error")
+                exit()
+            elif result == 6:
+                print("6 - Command Line source dir or output dir validation error")
+                exit()
+            elif result == 7:
+                print("7 - Command Line result saving to zip file error")
+                exit()
+            elif result == 8:
+                print("8 - Command Line upload from zip file error")
+                exit()
+            else:
+                print("Some other CLI error occured!")
+                exit()
+        print("CLI succesfully called.") 
 
         #2. Genarte BOM in Cyclone DX format
         try:
