@@ -238,6 +238,150 @@ class UploadResults():
         global occurrences_latest
         occurrences_latest = data.count("<dependency>")   
 
+    #Routine 6 - XML Parser for C Sharp used to parse cyclonedx output and extract the dependecnies from these and generate a new TEST.XML file
+    # Note : This parser only works for generating test.xml
+    def xml_parsing_for_c_sharp(self,cycloneDXOutput,save_path_file,outputPOM,newOutputFolder):
+        #mytree = ET.parse('C:\\DATA\\GITRepo\\com.castsoftware.uc.hl.dt\\response.xml',parser = ET.XMLParser(encoding = 'iso-8859-5'))
+        
+        # Start creating new test.xml file
+        mytree = ET.parse(cycloneDXOutput,parser = ET.XMLParser(encoding = 'iso-8859-5'))
+        myroot = mytree.getroot()
+        
+        root = minidom.Document()
+        
+        # ADD elements and attributes in xml file
+        project=root.createElement('project')
+        root.appendChild(project)
+        project.setAttribute('Sdk','Microsoft.NET.Sdk.Web')
+ 
+        property_group=root.createElement('PropertyGroup')
+        project.appendChild(property_group)
+
+        target_framework=root.createElement('TargetFramework')
+        target_framework_text=root.createTextNode('net5.0')
+        property_group.appendChild(target_framework)
+        target_framework.appendChild(target_framework_text)
+
+        item_group = root.createElement('ItemGroup') 
+        project.appendChild(item_group)
+
+        #Reads cyclonedx output extract element values and place those in right location
+        for dep in myroot.iter('{http://cyclonedx.org/schema/bom/1.3}dependency'):
+            components = dep.get('ref')
+            print(dep.get('ref'))
+            
+            dependency = root.createElement('PackageReference')
+            item_group.appendChild(dependency)
+            
+            if '.NET@' in components:
+                dependency_name = components.partition('.NET@')[0]
+                dependency_version = components.partition('.NET@')[2]
+
+                dependency.setAttribute('Include',str(dependency_name))
+                dependency.setAttribute('Version',str(dependency_version))
+
+            else:
+                dependency_name = components.partition('.NET@')[0]
+                dependency_version = '1.0'
+
+                dependency.setAttribute('Include',str(dependency_name))
+                dependency.setAttribute('Version',str(dependency_version))
+
+        #Make XML out of the extracted information
+        xml_str = root.toprettyxml(indent ="\t") 
+        
+        #Create a new directory inside source directory to place newly generated pom.xml
+        if not os.path.exists(newOutputFolder):
+            # if the demo_folder directory is not present 
+            # then create it.
+            os.makedirs(newOutputFolder)
+        outPath=os.listdir(newOutputFolder)
+
+        #Copy the pom.xml file in the new directory inside source location    
+        if len(outPath)==0:
+            shutil.copy(outputPOM,newOutputFolder)
+        
+        #Read the file
+        with open(save_path_file, "w+") as f:
+            f.write(xml_str) 
+        
+        #Remove duplicate elements from the file
+        file_flag = self.remove_duplicate_tags_for_c_sharp(save_path_file,newOutputFolder)
+        return file_flag
+
+    #Routine 6 - This routine will delete the duplicate elements from the newly generate xml        
+    def remove_duplicate_tags_for_c_sharp(self,save_path_file,outputPOM):
+        
+        outputPOM=outputPOM+'\\test.csproj'
+        file1 = open(outputPOM, "r")
+        #read content of file to string
+        f1_data  = file1.readlines()
+        #get number of occurrences of the substring in the string
+        # global occurrences_previous
+        # occurrences_previous = data.count("<PackageReference")   
+
+        unique_tag_list=[]
+        unwanted_tag_list=[]
+        tag_list_1=[]
+        tag_list_2=[]
+        tag_list_3=['\n\t</ItemGroup>\n','</project>']
+
+        #extrating required data from xml using regex
+        with open(save_path_file, 'r') as f:
+            content = f.read()
+
+            #
+            tag_pattern_1='(<\?xml (?:.|\n)+?.*)<PackageReference'
+            tag_list_1=re.findall(tag_pattern_1,content)
+
+            #extracting all the dependencies 
+            tag_pattern_2='(<PackageReference(?:.|\n)+?.*)'
+            tag_list_2=re.findall(tag_pattern_2,content)
+
+            if len(tag_list_2)>0:
+                for tag in tag_list_2:
+                    if tag not in unique_tag_list:
+                        #storing unqing dependencies to unique_tag_list
+                        unique_tag_list.append(tag)
+                    else:
+                        unwanted_tag_list.append(tag)
+
+        for i in range(len(unique_tag_list)):
+            unique_tag_list[i]='\n\t\t'+unique_tag_list[i]
+
+        #Combining all the data together
+        tag_list_1.extend(unique_tag_list)
+        tag_list_1.extend(tag_list_3)
+
+        
+        #writing combined data together to a output xml file
+        with open(outputPOM, "w+") as f2:
+            for i in tag_list_1:
+                f2.write(i)
+        file2 = open(outputPOM, "r")
+        #read content of file to string
+        f2_data = file2.readlines()
+        #get number of occurrences of the substring in the string
+        # global occurrences_latest
+        # occurrences_latest = data.count("<PackageReference")
+
+        i = 0
+        file_flag=0
+
+        for line1 in f1_data:
+            i += 1
+            
+            for line2 in f2_data:
+                
+                # matching line1 from both files
+                if line1 == line2: 
+                    file_flag=1
+                else:
+                    file_flag=0
+                break
+        return file_flag   
+
+
 
 # -------------------START PROGRAM----------------------------------------------------------
 print('\nCAST HL Scan - Version 1.0')
@@ -370,23 +514,6 @@ if save_path_file==sourceDir:
     exit()         
 
 
-if outputPOM=='' or str(outputPOM).isspace():
-    print('Output POM location is not defined')
-    exit()   
-if not os.path.exists(outputPOM):  
-    print('outputPOM path does not exist')
-    exit()
-flag=0
-for subdir, dirs, files in os.walk(outputPOM):
-    for file in files:
-        if file=='pom.xml':
-            flag=1
-            break
-if flag==0:
-    print('outputPOM path does not contain pom.xml file')
-    exit()            
-
-
 if newOutputFolder=='' or str(newOutputFolder).isspace():
     print('New output POM directory path is not defined')
     exit()
@@ -407,89 +534,169 @@ occurrences_latest=0
 #Instantiating main class 
 obj=UploadResults()
 
-#Iteration exit criteria
-# Criteria 1 - If Previous occurrences of tags are equal to latest occurrences
-# Criteria 2 - If occurrences reach 100
-for iter in range(100):
-
-    '''
-    if occurrences_previous!=occurrences_latest or occurrences_previous==0:    
-        #1. Run HL Scan and upload results
-        try:
-            result = obj.runHLAnalysis(*args)
-            print(result)
-        except:
-            print('Error occurred during Highlight scan')
-            exit()
-    '''
-
-    if occurrences_previous!=occurrences_latest or occurrences_previous==0:
-        print("Iteration #", iter+1)        
-        #1. Run HL Scan and upload results
-        result = -1
-        try:
-            print("Calling CLI...")
-            result = obj.runHLAnalysis(*args)
-        except:
-            print('Error occurred during Highlight scan.')
-            exit()
-        #Exiting if CLI returns an error status != 0
-        if result != 0:
-            if result == 1:
-                print("1 - Command Line general failure")
+parser_number=0
+while True:
+    try:
+        parser_number=int(input('Enter 1 for the JAVA Parser or Enter 2 for C# Parser : ').strip())
+        if parser_number==1:
+            if outputPOM=='' or str(outputPOM).isspace():
+                print('Output POM location is not defined')
+                exit()   
+            if not os.path.exists(outputPOM):  
+                print('outputPOM path does not exist')
                 exit()
-            elif result == 2:
-                print("2 - Command Line options parse error")
-                exit()
-            elif result == 3:
-                print("3 - Command Line techno discovery error")
-                exit()
-            elif result == 4:
-                print("4 - Command Line analysis error")
-                exit()
-            elif result == 5:
-                print("5 - Command Line result upload error")
-                exit()
-            elif result == 6:
-                print("6 - Command Line source dir or output dir validation error")
-                exit()
-            elif result == 7:
-                print("7 - Command Line result saving to zip file error")
-                exit()
-            elif result == 8:
-                print("8 - Command Line upload from zip file error")
-                exit()
-            else:
-                print("Some other CLI error occured!")
-                exit()
-        print("CLI succesfully called.") 
-
-        #2. Genarte BOM in Cyclone DX format
-        try:
-            obj.generateBOMRequest(applicationId,companyId,basicAuth,cycloneDXOutput+'\\response.xml')
-        except:
-            print('Error occurred during generating BOM')
-            exit()
-
-        #3. Parse response XML (BOM) and generate a new pom.xml for HL Scan and relaunch the scan
-        try:
-            obj.xmlParsing(cycloneDXOutput+'\\response.xml',save_path_file+'\\response_pom.xml',outputPOM+'\\pom.xml',newOutputFolder)
-        except:
-            print('Error occurred during Parsing BOM')
-            exit()
-    else:
-        #Remove intermediate cyclonedx output file
-        if os.path.exists(cycloneDXOutput):
-            for subdir, dirs, files in os.walk(cycloneDXOutput):
+            flag=0
+            for subdir, dirs, files in os.walk(outputPOM):
                 for file in files:
-                    if file.endswith('response.xml'):
-                        os.remove(file)
+                    if file=='pom.xml':
+                        flag=1
+                        break
+            if flag==0:
+                print('outputPOM path does not contain pom.xml file')
+                exit()  
+            #Iteration exit criteria
+            # Criteria 1 - If Previous occurrences of tags are equal to latest occurrences
+            # Criteria 2 - If occurrences reach 100
+            for iter in range(100):
 
-        #Remove intermediate POM file
-        if os.path.exists(save_path_file):
-            for subdir, dirs, files in os.walk(cycloneDXOutput):
+                if occurrences_previous!=occurrences_latest or occurrences_previous==0:
+                    print("Iteration #", iter+1)        
+                    #1. Run HL Scan and upload results
+                    result = -1
+                    try:
+                        print("Calling CLI...")
+                        result = obj.runHLAnalysis(*args)
+                    except:
+                        print('Error occurred during Highlight scan.')
+                        exit()
+                    #Exiting if CLI returns an error status != 0
+                    if result != 0:
+                        if result == 1:
+                            print("1 - Command Line general failure")
+                            exit()
+                        elif result == 2:
+                            print("2 - Command Line options parse error")
+                            exit()
+                        elif result == 3:
+                            print("3 - Command Line techno discovery error")
+                            exit()
+                        elif result == 4:
+                            print("4 - Command Line analysis error")
+                            exit()
+                        elif result == 5:
+                            print("5 - Command Line result upload error")
+                            exit()
+                        elif result == 6:
+                            print("6 - Command Line source dir or output dir validation error")
+                            exit()
+                        elif result == 7:
+                            print("7 - Command Line result saving to zip file error")
+                            exit()
+                        elif result == 8:
+                            print("8 - Command Line upload from zip file error")
+                            exit()
+                        else:
+                            print("Some other CLI error occured!")
+                            exit()
+                    print("CLI succesfully called.") 
+
+                    #2. Genarte BOM in Cyclone DX format
+                    try:
+                        obj.generateBOMRequest(applicationId,companyId,basicAuth,cycloneDXOutput+'\\response.xml')
+                    except:
+                        print('Error occurred during generating BOM')
+                        exit()
+
+                    #3. Parse response XML (BOM) and generate a new pom.xml for HL Scan and relaunch the scan
+                    try:
+                        obj.xmlParsing(cycloneDXOutput+'\\response.xml',save_path_file+'\\response_pom.xml',outputPOM+'\\pom.xml',newOutputFolder)
+                    except:
+                        print('Error occurred during Parsing BOM')
+                        exit()
+                else:
+                    # #Remove intermediate cyclonedx output file
+                    # if os.path.exists(cycloneDXOutput):
+                    #     for subdir, dirs, files in os.walk(cycloneDXOutput):
+                    #         for file in files:
+                    #             if file.endswith('response.xml'):
+                    #                 os.remove(file)
+
+                    # #Remove intermediate POM file
+                    # if os.path.exists(save_path_file):
+                    #     for subdir, dirs, files in os.walk(cycloneDXOutput):
+                    #         for file in files:
+                    #             if file.endswith('response_pom.xml'):
+                    #                 os.remove(file)
+
+                    exit()
+
+        elif parser_number==2:
+
+            if outputPOM=='' or str(outputPOM).isspace():
+                print('outputPOM location is not defined')
+                exit()   
+            if not os.path.exists(outputPOM):  
+                print('outputPOM path does not exist')
+                exit()
+            flag=0
+            for subdir, dirs, files in os.walk(outputPOM):
                 for file in files:
-                    if file.endswith('response_pom.xml'):
-                        os.remove(file)
+                    if file=='test.csproj':
+                        flag=1
+                        break
+            if flag==0:
+                print('outputPOM path does not contain test.csproj file')
+                exit()  
 
-        exit()
+            #Iteration exit criteria
+            # Criteria 1 - If Previous occurrences of tags are equal to latest occurrences
+            # Criteria 2 - If occurrences reach 100
+            file_flg = 0
+            for iter in range(100):
+                print(iter)
+                # if occurrences_previous!=occurrences_latest or occurrences_previous==0:  
+                if file_flg == 0: 
+                    #1. Run HL Scan and upload results
+                    try:
+                        result = obj.runHLAnalysis(*args)
+                        print(result)
+                    except:
+                        print('Error occurred during Highlight scan')
+                        exit()
+
+                    #2. Genarte BOM in Cyclone DX format
+                    try:
+                        obj.generateBOMRequest(applicationId,companyId,basicAuth,cycloneDXOutput+'\\response.xml')
+                    except:
+                        print('Error occurred during generating BOM')
+                        exit()
+
+                    #3. Parse response XML (BOM) and generate a new test.xml for HL Scan and relaunch the scan
+                    try:
+                        file_flg = obj.xml_parsing_for_c_sharp(cycloneDXOutput+'\\response.xml',save_path_file+'\\response_test.xml',outputPOM+'\\test.csproj',newOutputFolder)
+                    except Exception as e:
+                        print(str(e))
+                        print('Error occurred during Parsing BOM')
+                        exit()
+                else:
+                    # #Remove intermediate cyclonedx output file
+                    # if os.path.exists(cycloneDXOutput):
+                    #     for subdir, dirs, files in os.walk(cycloneDXOutput):
+                    #         for file in files:
+                    #             if file.endswith('response.xml'):
+                    #                 os.remove(file)
+
+                    # #Remove intermediate POM file
+                    # if os.path.exists(save_path_file):
+                    #     for subdir, dirs, files in os.walk(cycloneDXOutput):
+                    #         for file in files:
+                    #             if file.endswith('response_pom.xml'):
+                    #                 os.remove(file)
+
+                    exit()
+
+        else:
+            raise ValueError
+        break
+    except ValueError:
+        print("No valid integer! Please enter interger from range 1 to 4...")
