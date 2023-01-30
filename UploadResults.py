@@ -281,7 +281,7 @@ class UploadResults():
                 dependency.setAttribute('Version',str(dependency_version))
 
             else:
-                dependency_name = components.partition('.NET@')[0]
+                dependency_name = components.partition('@')[0]
                 dependency_version = '1.0'
 
                 dependency.setAttribute('Include',str(dependency_name))
@@ -306,19 +306,21 @@ class UploadResults():
             f.write(xml_str) 
         
         #Remove duplicate elements from the file
-        file_flag = self.remove_duplicate_tags_for_c_sharp(save_path_file,newOutputFolder)
-        return file_flag
+        self.remove_duplicate_tags_for_c_sharp(save_path_file,newOutputFolder)
+
 
     #Routine 6 - This routine will delete the duplicate elements from the newly generate xml        
     def remove_duplicate_tags_for_c_sharp(self,save_path_file,outputPOM):
         
         outputPOM=outputPOM+'\\test.csproj'
-        file1 = open(outputPOM, "r")
+        file = open(outputPOM, "r")
         #read content of file to string
-        f1_data  = file1.readlines()
+        data = file.read()
         #get number of occurrences of the substring in the string
-        # global occurrences_previous
-        # occurrences_previous = data.count("<PackageReference")   
+        global occurrences_previous
+        occurrences_previous = data.count("<PackageReference") 
+
+  
 
         unique_tag_list=[]
         unwanted_tag_list=[]
@@ -358,28 +360,14 @@ class UploadResults():
         with open(outputPOM, "w+") as f2:
             for i in tag_list_1:
                 f2.write(i)
-        file2 = open(outputPOM, "r")
+        file = open(outputPOM, "r")
         #read content of file to string
-        f2_data = file2.readlines()
+        data = file.read()
         #get number of occurrences of the substring in the string
-        # global occurrences_latest
-        # occurrences_latest = data.count("<PackageReference")
+        global occurrences_latest
+        occurrences_latest = data.count("<PackageReference")
 
-        i = 0
-        file_flag=0
-
-        for line1 in f1_data:
-            i += 1
-            
-            for line2 in f2_data:
-                
-                # matching line1 from both files
-                if line1 == line2: 
-                    file_flag=1
-                else:
-                    file_flag=0
-                break
-        return file_flag   
+  
 
 
 
@@ -651,11 +639,10 @@ while True:
             #Iteration exit criteria
             # Criteria 1 - If Previous occurrences of tags are equal to latest occurrences
             # Criteria 2 - If occurrences reach 100
-            file_flg = 0
             for iter in range(100):
-                print(iter)
+                print(iter+1)
                 # if occurrences_previous!=occurrences_latest or occurrences_previous==0:  
-                if file_flg == 0: 
+                if occurrences_previous!=occurrences_latest or occurrences_previous==0:
                     #1. Run HL Scan and upload results
                     try:
                         result = obj.runHLAnalysis(*args)
@@ -673,7 +660,7 @@ while True:
 
                     #3. Parse response XML (BOM) and generate a new test.xml for HL Scan and relaunch the scan
                     try:
-                        file_flg = obj.xml_parsing_for_c_sharp(cycloneDXOutput+'\\response.xml',save_path_file+'\\response_test.xml',outputPOM+'\\test.csproj',newOutputFolder)
+                        obj.xml_parsing_for_c_sharp(cycloneDXOutput+'\\response.xml',save_path_file+'\\response_test.xml',outputPOM+'\\test.csproj',newOutputFolder)
                     except Exception as e:
                         print(str(e))
                         print('Error occurred during Parsing BOM')
