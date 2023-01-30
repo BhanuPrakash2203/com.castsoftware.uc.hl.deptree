@@ -75,13 +75,13 @@ class UploadResults():
             raise KeyError (f'No applications found')
     
     #Routine 2 - Used to initiate the BOM request using the highlight instance
-    def generateBOMRequest(self,appID,compID,basicAuth,cycloneDXPath):
+    def generateBOMRequest(self,appID,compID,basicAuth,cycloneDXPath,serverUrl):
         time.sleep(120)
         data={"selector": {"applications": [appID]}, "reportConfig": ["SendMail","DependenciesAndCve"]}
         print(data)
         headers={"Accept": "application/octet-stream", "Content-Type":"application/json", "Authorization": f"Basic {basicAuth}"}
         print(headers)
-        response=requests.post(f'https://rpa.casthighlight.com/WS/export/BOM/CycloneDX?companySwitch={compID}&lastResult=true', json=data, headers=headers)
+        response=requests.post(f'{serverUrl}WS/export/BOM/CycloneDX?companySwitch={compID}&lastResult=true', json=data, headers=headers)
         print(response)
         print(response.headers)
         apiResponse=response.headers
@@ -602,7 +602,7 @@ while True:
 
                     #2. Genarte BOM in Cyclone DX format
                     try:
-                        obj.generateBOMRequest(applicationId,companyId,basicAuth,cycloneDXOutput+'\\response.xml')
+                        obj.generateBOMRequest(applicationId,companyId,basicAuth,cycloneDXOutput+'\\response.xml',serverUrl)
                     except:
                         print('Error occurred during generating BOM')
                         exit()
@@ -666,7 +666,7 @@ while True:
 
                     #2. Genarte BOM in Cyclone DX format
                     try:
-                        obj.generateBOMRequest(applicationId,companyId,basicAuth,cycloneDXOutput+'\\response.xml')
+                        obj.generateBOMRequest(applicationId,companyId,basicAuth,cycloneDXOutput+'\\response.xml',serverUrl)
                     except:
                         print('Error occurred during generating BOM')
                         exit()
