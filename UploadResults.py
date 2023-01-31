@@ -140,26 +140,50 @@ class UploadResults():
             depsChild = root.createElement('dependency')
             xml.appendChild(depsChild)
             
-            #Extract group ID
-            groupID = root.createElement('groupId')
-            textgroupID=root.createTextNode(components.partition(':')[0])
-            #textgroupID=root.createTextNode(components)
-            depsChild.appendChild(groupID)
-            groupID.appendChild(textgroupID)
-            
-            #Extract Artifact ID i.e. the name of component
-            artifactId=root.createElement('artifactId')
-            textartifactId=root.createTextNode(components.partition(':')[2].partition('@')[0])
-            #textartifactId=root.createTextNode(components)
-            depsChild.appendChild(artifactId)
-            artifactId.appendChild(textartifactId)
+            if ':' in components and '@' in components:
+                #Extract group ID
+                groupID = root.createElement('groupId')
+                textgroupID=root.createTextNode(components.partition(':')[0])
+                #textgroupID=root.createTextNode(components)
+                depsChild.appendChild(groupID)
+                groupID.appendChild(textgroupID)
+                
+                #Extract Artifact ID i.e. the name of component
+                artifactId=root.createElement('artifactId')
+                textartifactId=root.createTextNode(components.partition(':')[2].partition('@')[0])
+                #textartifactId=root.createTextNode(components)
+                depsChild.appendChild(artifactId)
+                artifactId.appendChild(textartifactId)
 
-            #Extract component's version
-            version=root.createElement('version')
-            textversion=root.createTextNode(components.partition(':')[2].partition('@')[2])
-            #textversion=root.createTextNode(components)
-            depsChild.appendChild(version)
-            version.appendChild(textversion)
+                #Extract component's version
+                version=root.createElement('version')
+                textversion=root.createTextNode(components.partition(':')[2].partition('@')[2])
+                #textversion=root.createTextNode(components)
+                depsChild.appendChild(version)
+                version.appendChild(textversion)
+            
+            else:
+                #Extract group ID
+                groupID = root.createElement('groupId')
+                textgroupID=root.createTextNode(components.partition('@')[0])
+                #textgroupID=root.createTextNode(components)
+                depsChild.appendChild(groupID)
+                groupID.appendChild(textgroupID)
+                
+                #Extract Artifact ID i.e. the name of component
+                artifactId=root.createElement('artifactId')
+                textartifactId=root.createTextNode(components.partition('@')[0])
+                #textartifactId=root.createTextNode(components)
+                depsChild.appendChild(artifactId)
+                artifactId.appendChild(textartifactId)
+
+                #Extract component's version
+                version=root.createElement('version')
+                textversion=root.createTextNode(components.partition('@')[0])
+                #textversion=root.createTextNode(components)
+                depsChild.appendChild(version)
+                version.appendChild(textversion)
+
 
         #Make XML out of the extracted information
         xml_str = root.toprettyxml(indent ="\t") 
