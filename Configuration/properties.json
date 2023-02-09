@@ -10,6 +10,6 @@
   "basicAuth": "",
   "cyclodxOutput": "C:\\DATA\\GITRepo\\com.castsoftware.uc.hl.dt",
   "save_path_file": "C:\\DATA\\GITRepo\\com.castsoftware.uc.hl.dt",
-  "outputpom": "C:\\Users\\BBA\\Desktop\\Data_12-09-2022\\HL Automation\\Source",
-  "newOutputFolder": "C:\\Users\\BBA\\Desktop\\Data_12-09-2022\\HL Automation\\Source\\outPutPOM"
+  "outputfile": "C:\\Users\\BBA\\Desktop\\Data_12-09-2022\\HL Automation\\Source",
+  "newOutputFolder": "C:\\Users\\BBA\\Desktop\\Data_12-09-2022\\HL Automation\\Source\\outPutFile"
 }
