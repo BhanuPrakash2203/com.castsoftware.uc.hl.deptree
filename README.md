@@ -15,9 +15,9 @@ The script is designed to run on the command line. It internally uses a properti
     py UploadResults.py 
 
 After running of UploadResults.py file, It ask users to enter diiferent numbers to use different parser.
-1 - for JAVA parser
-2 - for DOT NET parser
-3 - for Python parser.
+   1 - for JAVA parser.
+   2 - for DOT NET parser.
+   3 - for Python parser.
 
 # Properties file
 The HL Dependency Tool is configured using a properties.json file.  The file consists of various parameters which are required and need to be changed before running the tool.  
