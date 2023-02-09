@@ -57,17 +57,27 @@ Python should have to be installed in the machine from where one need to run thi
 
 ### How it works
 * This is a three step process
-   * Run HL Scan and upload results - runs the source code analysis and uploads the result.
+   1) Run HL Scan and upload results - runs the source code analysis and uploads the result.
       * The utity uses the Highlight CLIs (HighlightAutomation.jar) to run the sscan and upload the reusults into mentioned Highlight instance.
          * Note : Always use the latest version of HighlightAutomation.jar downloading it from Highlight Instance https://rpa.casthighlight.com
       * All the required parameters to pass as an argument to the jar file can be configured in properties.json file, found under configuration folder.
-   * Genarte BOM in CycloneDX format - extacts the BOM report in cyclonedx format using a non public API.
+   2) Genarte BOM in CycloneDX format - extacts the BOM report in cyclonedx format using a non public API.
       * Once the scan will be done it runs a non public API to generate the BOM
       * After generating the BOM it stores it in the location defined in properties.json file
-   * Parse response XML (BOM) and generate a new response file for HL Scan and relaunch the scan - Parses the BOM and extract the dependency information from there. Then injects the same for creating a new output file.
-      * Once the BOM is been generated, the utility parses it and creates a dummy output file exracting the dependencies from BOM and placing the same in right tag inside of output file.   
-      * Then it saves the generated output file in the source code location which is been picked up earlier for highlight scan.
-      * It runs the HL scan again and repeats the same process i.e. generation of BOM, parsing it and creating a dummy output file.
+   3) Parse response XML (BOM) and generate a new response file for HL Scan and relaunch the scan - Parses the BOM and extract the dependency information from there. Then injects the same for creating a new output file.
+      1.Java Parser:- 
+         * Once the BOM is been generated, the utility parses it and creates a dummy pom.xml file exracting the dependencies from BOM and placing the same in right tag inside of POM.xml.   
+         * Then it saves the generated pom.xml in the source code location which is been picked up earlier for highlight scan.
+         * It runs the HL scan again and repeats the same process i.e. generation of BOM, parsing it and creating a dummy pom.xml.
+      2.DOT NET Parser:-
+         * Once the BOM is been generated, the utility parses it and creates a dummy test.csproj file exracting the dependencies from BOM and placing the same in right tag inside of test.csproj.   
+         * Then it saves the generated test.csproj in the source code location which is been picked up earlier for highlight scan.
+         * It runs the HL scan again and repeats the same process i.e. generation of BOM, parsing it and creating a dummy test.csproj.
+      3.Python Parser:-
+         * Once the BOM is been generated, the utility parses it and creates a dummy app.py file exracting the packages from BOM and placing the same in right packages inside of app.py.   
+         * Then it saves the generated app.py in the source code location which is been picked up earlier for highlight scan.
+         * It runs the HL scan again and repeats the same process i.e. generation of BOM, parsing it and creating a dummy app.py.
+
    
 Note : All the above steps runs in loop until these doesn't find any difference between previously analyzed and the latest output file or reaches the count of 100 loops which is the threshold.
 
