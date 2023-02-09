@@ -1,4 +1,3 @@
-<pre>
 # Highlight BOM Dependency Tree
 The script is used to generate a dependency tree of Components upto the last level  
 
@@ -15,10 +14,10 @@ The script is designed to run on the command line. It internally uses a properti
 
     py UploadResults.py 
 
-After running of UploadResults.py file, It ask users to enter diiferent numbers to use different parser.
-   1 - for JAVA parser.<br />
-   2 - for DOT NET parser.<br />
-   3 - for Python parser.<br />
+After running of UploadResults.py file, It ask users to enter diiferent numbers to use different parser.<br/>
+   1 - for JAVA parser.<br/>
+   2 - for DOT NET parser.<br/>
+   3 - for Python parser.<br/>
 
 # Properties file
 The HL Dependency Tool is configured using a properties.json file.  The file consists of various parameters which are required and need to be changed before running the tool.  
@@ -65,21 +64,21 @@ Python should have to be installed in the machine from where one need to run thi
    2) Genarte BOM in CycloneDX format - extacts the BOM report in cyclonedx format using a non public API.
       * Once the scan will be done it runs a non public API to generate the BOM
       * After generating the BOM it stores it in the location defined in properties.json file
-   3) Parse response XML (BOM) and generate a new response file for HL Scan and relaunch the scan - Parses the BOM and extract the dependency information from there. Then injects the same for creating a new output file.<br />
-      1.Java Parser:-<br /> 
+   3) Parse response XML (BOM) and generate a new response file for HL Scan and relaunch the scan - Parses the BOM and extract the dependency information from there. Then injects the same for creating a new output file.<br/>
+      1.Java Parser:-<br/> 
          * Once the BOM is been generated, the utility parses it and creates a dummy pom.xml file exracting the dependencies from BOM and placing the same in right tag inside of POM.xml.   
          * Then it saves the generated pom.xml in the source code location which is been picked up earlier for highlight scan.
-         * It runs the HL scan again and repeats the same process i.e. generation of BOM, parsing it and creating a dummy pom.xml.
-      2.DOT NET Parser:-<br />
+         * It runs the HL scan again and repeats the same process i.e. generation of BOM, parsing it and creating a dummy pom.xml.<br/>
+      2.DOT NET Parser:-<br/>
          * Once the BOM is been generated, the utility parses it and creates a dummy test.csproj file exracting the dependencies from BOM and placing the same in right tag inside of test.csproj.   
          * Then it saves the generated test.csproj in the source code location which is been picked up earlier for highlight scan.
-         * It runs the HL scan again and repeats the same process i.e. generation of BOM, parsing it and creating a dummy test.csproj.
-      3.Python Parser:-<br />
+         * It runs the HL scan again and repeats the same process i.e. generation of BOM, parsing it and creating a dummy test.csproj.<br/>
+      3.Python Parser:-<br/>
          * Once the BOM is been generated, the utility parses it and creates a dummy app.py file exracting the packages from BOM and placing the same in right packages inside of app.py.   
          * Then it saves the generated app.py in the source code location which is been picked up earlier for highlight scan.
-         * It runs the HL scan again and repeats the same process i.e. generation of BOM, parsing it and creating a dummy app.py.
+         * It runs the HL scan again and repeats the same process i.e. generation of BOM, parsing it and creating a dummy app.py.<br/>
 
    
 Note : All the above steps runs in loop until these doesn't find any difference between previously analyzed and the latest output file or reaches the count of 100 loops which is the threshold.
 
-</pre>
+
