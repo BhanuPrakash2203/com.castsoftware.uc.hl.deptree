@@ -1,3 +1,4 @@
+<pre>
 # Highlight BOM Dependency Tree
 The script is used to generate a dependency tree of Components upto the last level  
 
@@ -81,4 +82,4 @@ Python should have to be installed in the machine from where one need to run thi
    
 Note : All the above steps runs in loop until these doesn't find any difference between previously analyzed and the latest output file or reaches the count of 100 loops which is the threshold.
 
-
+</pre>
