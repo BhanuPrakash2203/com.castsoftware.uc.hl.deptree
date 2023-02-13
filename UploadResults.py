@@ -133,7 +133,7 @@ class UploadResults():
         project.appendChild(xml)
 
         #Reads cyclonedx output extract element values and place those in right location
-        for dep in myroot.iter('{http://cyclonedx.org/schema/bom/1.3}dependency'):
+        for dep in myroot.iter('{http://cyclonedx.org/schema/bom/1.4}dependency'):
             components=dep.get('ref')
             print(dep.get('ref'))
             
@@ -290,7 +290,7 @@ class UploadResults():
         project.appendChild(item_group)
 
         #Reads cyclonedx output extract element values and place those in right location
-        for dep in myroot.iter('{http://cyclonedx.org/schema/bom/1.3}dependency'):
+        for dep in myroot.iter('{http://cyclonedx.org/schema/bom/1.4}dependency'):
             components = dep.get('ref')
             print(dep.get('ref'))
             
@@ -390,6 +390,88 @@ class UploadResults():
         #get number of occurrences of the substring in the string
         global occurrences_latest
         occurrences_latest = data.count("<PackageReference")
+
+    #Routine 7 - XML Parser used to parse cyclonedx output and extract the dependecnies from these and generate a new XML file
+    def xml_parsing_for_python(self,cycloneDXOutput,save_path_file,outputFile,newOutputFolder):
+        #mytree = ET.parse('C:\\DATA\\GITRepo\\com.castsoftware.uc.hl.dt\\response.xml',parser = ET.XMLParser(encoding = 'iso-8859-5'))
+        
+        # Start creating new pom.xml file
+        mytree = ET.parse(cycloneDXOutput,parser = ET.XMLParser(encoding = 'iso-8859-5'))
+        myroot = mytree.getroot()
+
+        dependency_list=[]
+
+        #Reads cyclonedx output extract element values and place those in right location
+        for dep in myroot.iter('{http://cyclonedx.org/schema/bom/1.4}dependency'):
+            components=dep.get('ref')
+            print(dep.get('ref'))
+            
+            if '@' in components:
+                #Extract dependency
+                dependency=components.partition('@')[0]
+                dependency_list.append(dependency)
+            else:
+                #Extract dependency
+                dependency=components
+                dependency_list.append(dependency)
+
+        #Create a new directory inside source directory to place newly generated pom.xml
+        if not os.path.exists(newOutputFolder):
+            # if the demo_folder directory is not present 
+            # then create it.
+            os.makedirs(newOutputFolder)
+        outPath=os.listdir(newOutputFolder)
+
+        #Copy the pom.xml file in the new directory inside source location    
+        if len(outPath)==0:
+            shutil.copy(outputFile,newOutputFolder)
+        
+        #Read the file
+        with open(save_path_file, "w+") as f:
+            for dep in dependency_list:
+                f.write('import '+dep+'\n')
+        
+        #Remove duplicate elements from the file
+        self.remove_duplicate_tags_for_python(save_path_file,newOutputFolder)
+
+    #Routine 8 - This routine will delete the duplicate elements from the newly generate xml        
+    def remove_duplicate_tags_for_python(self,save_path_file,outputFile):
+        
+        outputFile=outputFile+'\\app.py'
+        file = open(outputFile, "r")
+        #read content of file to string
+        data = file.read()
+        #get number of occurrences of the substring in the string
+        global occurrences_previous
+        occurrences_previous = data.count("import")   
+
+        unique_dependency_list=[]
+
+        #extrating required data from .py file using regex
+        with open(save_path_file, 'r') as f:
+            content = f.read()
+
+            #
+            dependency_pattern='import (.*)'
+            dependency_list=re.findall(dependency_pattern,content)
+
+            if len(dependency_list)>0:
+                for dep in dependency_list:
+                    if dep not in unique_dependency_list:
+                        #storing unqing dependencies to unique_tag_list
+                        unique_dependency_list.append(dep)
+
+        #writing combined data together to a output xml file
+        with open(outputFile, "w+") as f2:
+            for i in unique_dependency_list:
+                f2.write('import '+i+'\n')
+        file = open(outputFile, "r")
+        #read content of file to string
+        data = file.read()
+        #get number of occurrences of the substring in the string
+        global occurrences_latest
+        occurrences_latest = data.count("import")   
+
 
   
 
@@ -549,7 +631,7 @@ if __name__ == "__main__":
     parser_number=0
     while True:
         try:
-            parser_number=int(input('Enter 1 for the JAVA Parser or Enter 2 for DOT NET Parser : ').strip())
+            parser_number=int(input('Enter 1 for the JAVA Parser or Enter 2 for DOT NET Parser or Enter 3 for Python Parser : ').strip())
             if parser_number==1:
                 if outputFile=='' or str(outputFile).isspace():
                     print('outputFile location is not defined')
@@ -718,6 +800,98 @@ if __name__ == "__main__":
                             obj.xml_parsing_for_dot_net(cycloneDXOutput+'\\response.xml',save_path_file+'\\response_test.xml',outputFile+'\\test.csproj',newOutputFolder)
                         except Exception as e:
                             print(str(e))
+                            print('Error occurred during Parsing BOM')
+                            exit()
+                    else:
+                        # #Remove intermediate cyclonedx output file
+                        # if os.path.exists(cycloneDXOutput):
+                        #     for subdir, dirs, files in os.walk(cycloneDXOutput):
+                        #         for file in files:
+                        #             if file.endswith('response.xml'):
+                        #                 os.remove(file)
+
+                        # #Remove intermediate POM file
+                        # if os.path.exists(save_path_file):
+                        #     for subdir, dirs, files in os.walk(cycloneDXOutput):
+                        #         for file in files:
+                        #             if file.endswith('response_pom.xml'):
+                        #                 os.remove(file)
+
+                        exit()
+
+            elif parser_number==3:
+                if outputFile=='' or str(outputFile).isspace():
+                    print('Output POM location is not defined')
+                    exit()   
+                if not os.path.exists(outputFile):  
+                    print('outputFile path does not exist')
+                    exit()
+                flag=0
+                for subdir, dirs, files in os.walk(outputFile):
+                    for file in files:
+                        if file=='app.py':
+                            flag=1
+                            break
+                if flag==0:
+                    print('outputFile path does not contain app.py file')
+                    exit()  
+                #Iteration exit criteria
+                # Criteria 1 - If Previous occurrences of tags are equal to latest occurrences
+                # Criteria 2 - If occurrences reach 100
+                for iter in range(100):
+
+                    if occurrences_previous!=occurrences_latest or occurrences_previous==0:
+                        print("Iteration #", iter+1)        
+                        #1. Run HL Scan and upload results
+                        result = -1
+                        try:
+                            print("Calling CLI...")
+                            result = obj.run_hl_analysis(*args)
+                        except:
+                            print('Error occurred during Highlight scan.')
+                            exit()
+                        #Exiting if CLI returns an error status != 0
+                        if result != 0:
+                            if result == 1:
+                                print("1 - Command Line general failure")
+                                exit()
+                            elif result == 2:
+                                print("2 - Command Line options parse error")
+                                exit()
+                            elif result == 3:
+                                print("3 - Command Line techno discovery error")
+                                exit()
+                            elif result == 4:
+                                print("4 - Command Line analysis error")
+                                exit()
+                            elif result == 5:
+                                print("5 - Command Line result upload error")
+                                exit()
+                            elif result == 6:
+                                print("6 - Command Line source dir or output dir validation error")
+                                exit()
+                            elif result == 7:
+                                print("7 - Command Line result saving to zip file error")
+                                exit()
+                            elif result == 8:
+                                print("8 - Command Line upload from zip file error")
+                                exit()
+                            else:
+                                print("Some other CLI error occured!")
+                                exit()
+                        print("CLI succesfully called.") 
+
+                        #2. Genarte BOM in Cyclone DX format
+                        try:
+                            obj.generate_bom_request(applicationId,companyId,basicAuth,cycloneDXOutput+'\\response.xml',serverUrl)
+                        except:
+                            print('Error occurred during generating BOM')
+                            exit()
+
+                        #3. Parse response XML (BOM) and generate a new pom.xml for HL Scan and relaunch the scan
+                        try:
+                            obj.xml_parsing_for_python(cycloneDXOutput+'\\response.xml',save_path_file+'\\response_app.py',outputFile+'\\app.py',newOutputFolder)
+                        except:
                             print('Error occurred during Parsing BOM')
                             exit()
                     else:
