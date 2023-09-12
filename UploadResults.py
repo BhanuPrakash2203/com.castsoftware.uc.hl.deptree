@@ -143,9 +143,9 @@ class UploadResults():
     def removeDuplicateTags(self,save_path_file,outputPOM):
         
         outputPOM=outputPOM+'\pom.xml'
-        file = open(outputPOM, "r")
+        with open(outputPOM, "r") as file:
         #read content of file to string
-        data = file.read()
+            data = file.read()
         #get number of occurrences of the substring in the string
         global occurrences_previous
         occurrences_previous = data.count("<dependency>")   
@@ -175,9 +175,10 @@ class UploadResults():
                         unique_tag_list.append(tag)
                     else:
                         unwanted_tag_list.append(tag)
-
-        for i in range(len(unique_tag_list)):
-            unique_tag_list[i]='\n\t\t'+unique_tag_list[i]
+        length=len(unique_tag_list)
+        for i in range(length):
+            unique_tag_list[i]='\n\t\t'.join(unique_tag_list[i])
+            print(unique_tag_list[i])
 
         #Combining all the data together
         tag_list_1.extend(unique_tag_list)
@@ -188,9 +189,9 @@ class UploadResults():
         with open(outputPOM, "w+") as f2:
             for i in tag_list_1:
                 f2.write(i)
-        file = open(outputPOM, "r")
-        #read content of file to string
-        data = file.read()
+        with open(outputPOM, "r") as file:
+            #read content of file to string
+            data = file.read()
         #get number of occurrences of the substring in the string
         global occurrences_latest
         occurrences_latest = data.count("<dependency>")   
@@ -203,7 +204,7 @@ print('If you need assistance, please contact Bhanu Prakash (BBA) from the CAST 
 #HL Command line parameters
 #extract parameters from properties.txt file
 dirname = os.path.dirname(__file__)
-properties_file=dirname+'\\Configuration\\Properties.txt'
+properties_file=dirname+'\Configuration\Properties.txt'
 with open(properties_file,'r') as f:
     path_list = f.read().split('\n')
     hlJarPath=path_list[0].strip()
