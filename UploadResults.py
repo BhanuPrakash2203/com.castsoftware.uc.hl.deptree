@@ -59,7 +59,7 @@ class UploadResults():
         apiResponse=response.headers
         responseHeader=apiResponse.get('Location')
         print(responseHeader)
-        if response.status_code==202:
+        if response.status_code==201:
             self.generateBOM(responseHeader,basicAuth,cycloneDXPath)
 
     def generateBOM(self,respHead,basicAuth,cycloneDXPath):
@@ -194,6 +194,9 @@ class UploadResults():
         #get number of occurrences of the substring in the string
         global occurrences_latest
         occurrences_latest = data.count("<dependency>")   
+
+
+start_time = time.time()
 
 print('\nCAST HL Scan')
 print('Copyright (c) 2022 CAST Software Inc.\n')
@@ -341,4 +344,10 @@ for iter in range(100):
             exit()
     else:
         exit()
-    
+# Record the end time
+end_time = time.time()
+
+# Calculate the execution time in seconds
+execution_time = end_time - start_time
+
+print(f"Execution time: {execution_time:.2f} seconds")   
